@@ -1,0 +1,43 @@
+# Kubernetes::V1beta1JSONSchemaProps
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ref** | **String** |  | [optional] 
+**schema** | **String** |  | [optional] 
+**additional_items** | [**V1beta1JSONSchemaPropsOrBool**](V1beta1JSONSchemaPropsOrBool.md) |  | [optional] 
+**additional_properties** | [**V1beta1JSONSchemaPropsOrBool**](V1beta1JSONSchemaPropsOrBool.md) |  | [optional] 
+**all_of** | [**Array&lt;V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**any_of** | [**Array&lt;V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**default** | [**V1beta1JSON**](V1beta1JSON.md) |  | [optional] 
+**definitions** | [**Hash&lt;String, V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**dependencies** | [**Hash&lt;String, V1beta1JSONSchemaPropsOrStringArray&gt;**](V1beta1JSONSchemaPropsOrStringArray.md) |  | [optional] 
+**description** | **String** |  | [optional] 
+**enum** | [**Array&lt;V1beta1JSON&gt;**](V1beta1JSON.md) |  | [optional] 
+**example** | [**V1beta1JSON**](V1beta1JSON.md) |  | [optional] 
+**exclusive_maximum** | **BOOLEAN** |  | [optional] 
+**exclusive_minimum** | **BOOLEAN** |  | [optional] 
+**external_docs** | [**V1beta1ExternalDocumentation**](V1beta1ExternalDocumentation.md) |  | [optional] 
+**format** | **String** |  | [optional] 
+**id** | **String** |  | [optional] 
+**items** | [**V1beta1JSONSchemaPropsOrArray**](V1beta1JSONSchemaPropsOrArray.md) |  | [optional] 
+**max_items** | **Integer** |  | [optional] 
+**max_length** | **Integer** |  | [optional] 
+**max_properties** | **Integer** |  | [optional] 
+**maximum** | **Float** |  | [optional] 
+**min_items** | **Integer** |  | [optional] 
+**min_length** | **Integer** |  | [optional] 
+**min_properties** | **Integer** |  | [optional] 
+**minimum** | **Float** |  | [optional] 
+**multiple_of** | **Float** |  | [optional] 
+**_not** | [**V1beta1JSONSchemaProps**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**one_of** | [**Array&lt;V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**pattern** | **String** |  | [optional] 
+**pattern_properties** | [**Hash&lt;String, V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**properties** | [**Hash&lt;String, V1beta1JSONSchemaProps&gt;**](V1beta1JSONSchemaProps.md) |  | [optional] 
+**required** | **Array&lt;String&gt;** |  | [optional] 
+**title** | **String** |  | [optional] 
+**type** | **String** |  | [optional] 
+**unique_items** | **BOOLEAN** |  | [optional] 
+
+
