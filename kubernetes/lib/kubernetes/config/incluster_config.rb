@@ -19,20 +19,6 @@ module Kubernetes
 
   class InClusterConfig
 
-    class << self
-
-      #
-      # Use the service account kubernetes gives to pods to connect to kubernetes
-      # cluster. It's intended for clients that expect to be running inside a pod
-      # running on kubernetes. It will raise an exception if called from a process
-      # not running in a kubernetes environment.
-      def load(client_configuration: Configuration.default)
-        config = self.new
-        config.configure(client_configuration)
-      end
-
-    end
-
     SERVICE_HOST_ENV_NAME = "KUBERNETES_SERVICE_HOST"
     SERVICE_PORT_ENV_NAME = "KUBERNETES_SERVICE_PORT"
     SERVICE_TOKEN_FILENAME = "/var/run/secrets/kubernetes.io/serviceaccount/token"

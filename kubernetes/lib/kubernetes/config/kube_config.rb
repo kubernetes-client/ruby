@@ -29,39 +29,6 @@ module Kubernetes
 
     class << self
 
-      #
-      # Loads authentication and cluster information from kube-config file
-      # and stores them in Kubernetes::Configuration.
-      # @param config_file [String] Path of the kube-config file.
-      # @param context [String] Set the active context. If is set to nil, current_context from config file will be used.
-      # @param client_configuration [Kubernetes::Configuration] The Kubernetes::Configuration tp set configs to.
-      def load(
-        config_file=ENV['KUBE_CONFIG'],
-        context: nil,
-        client_configuration: Configuration.default
-      )
-        config_file ||= KUBE_CONFIG_DEFAULT_LOCATION
-        config = self.new(config_file)
-        config.configure(client_configuration, context)
-      end
-
-      #
-      # Loads configuration the same as load_kube_config but returns an ApiClient
-      # to be used with any API object. This will allow the caller to concurrently
-      # talk with multiple clusters.
-      # @param config_file [String] Path of the kube-config file.
-      # @param context [String] Set the active context. If is set to nil, current_context from config file will be used.
-      # @return [Kubernetes::ApiClient] Api client for Kubernetes cluster
-      def new_client(
-        config_file=ENV['KUBE_CONFIG'],
-        context: nil
-      )
-        config_file ||= KUBE_CONFIG_DEFAULT_LOCATION
-        client_configuration = Configuration.new
-        load(config_file, context: context, client_configuration: client_configuration)
-        ApiClient.new(client_configuration)
-      end
-
       def list_context_names(config_file=KUBE_CONFIG_DEFAULT_LOCATION)
         config = self.new(config_file)
         return config.list_context_names

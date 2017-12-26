@@ -53,14 +53,10 @@ Please follow the [installation](#installation) procedure and then run the follo
 ```ruby
 # Load the gem
 require 'kubernetes'
+require 'kubernetes/utils'
 
-# Setup authorization
-Kubernetes.configure do |config|
-  # Configure API key authorization: BearerToken
-  config.api_key['authorization'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['authorization'] = 'Bearer'
-end
+# Configs can be set in Configuration class directly or using helper utility
+Kubernetes.load_kube_config
 
 api_instance = Kubernetes::AdmissionregistrationApi.new
 
