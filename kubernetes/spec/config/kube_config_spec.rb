@@ -14,6 +14,7 @@
 
 require 'base64'
 require 'spec_helper'
+require 'config/matchers'
 
 require 'kubernetes/config/kube_config'
 
@@ -163,21 +164,6 @@ TEST_KUBE_CONFIG = {
   ],
 }
 
-RSpec::Matchers.define :be_same_configuration_as do |expected|
-  match do |actual|
-    to_h = Proc.new do |configuration|
-      {}.tap do |hash|
-        configuration.instance_variables.each do |var|
-          value = configuration.instance_variable_get(var)
-          if value.kind_of?(Hash) || value.kind_of?(String)
-            hash[var.to_s.tr('@', '')] = value
-          end
-        end
-      end
-    end
-    to_h.call(actual) == to_h.call(expected)
-  end
-end
 
 describe Kubernetes::KubeConfig do
   let(:kube_config) { Kubernetes::KubeConfig.new(file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
