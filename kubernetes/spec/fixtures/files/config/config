@@ -1,0 +1,13 @@
+apiVersion: v1
+clusters:
+- name: default
+  cluster:
+    server: http://localhost:8080
+contexts:
+- name: no_user
+  context:
+    cluster: default
+current-context: no_user
+kind: Config
+preferences: {}
+users:
