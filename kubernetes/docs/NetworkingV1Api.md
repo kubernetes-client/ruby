@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_network_policy**
-> V1NetworkPolicy create_namespaced_network_policy(namespacebody, opts)
+> V1NetworkPolicy create_namespaced_network_policy(namespace, body, opts)
 
 
 
@@ -45,7 +45,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_network_policy(namespacebody, opts)
+  result = api_instance.create_namespaced_network_policy(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling NetworkingV1Api->create_namespaced_network_policy: #{e}"

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_job**
-> V1Job create_namespaced_job(namespacebody, opts)
+> V1Job create_namespaced_job(namespace, body, opts)
 
 
 
@@ -48,7 +48,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_job(namespacebody, opts)
+  result = api_instance.create_namespaced_job(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling BatchV1Api->create_namespaced_job: #{e}"

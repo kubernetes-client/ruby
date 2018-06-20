@@ -45,7 +45,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_controller_revision**
-> V1beta1ControllerRevision create_namespaced_controller_revision(namespacebody, opts)
+> V1beta1ControllerRevision create_namespaced_controller_revision(namespace, body, opts)
 
 
 
@@ -74,7 +74,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_controller_revision(namespacebody, opts)
+  result = api_instance.create_namespaced_controller_revision(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->create_namespaced_controller_revision: #{e}"
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_deployment**
-> AppsV1beta1Deployment create_namespaced_deployment(namespacebody, opts)
+> AppsV1beta1Deployment create_namespaced_deployment(namespace, body, opts)
 
 
 
@@ -134,7 +134,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_deployment(namespacebody, opts)
+  result = api_instance.create_namespaced_deployment(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->create_namespaced_deployment: #{e}"
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_stateful_set**
-> V1beta1StatefulSet create_namespaced_stateful_set(namespacebody, opts)
+> V1beta1StatefulSet create_namespaced_stateful_set(namespace, body, opts)
 
 
 
@@ -257,7 +257,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_stateful_set(namespacebody, opts)
+  result = api_instance.create_namespaced_stateful_set(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->create_namespaced_stateful_set: #{e}"

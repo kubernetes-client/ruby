@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_pod_preset**
-> V1alpha1PodPreset create_namespaced_pod_preset(namespacebody, opts)
+> V1alpha1PodPreset create_namespaced_pod_preset(namespace, body, opts)
 
 
 
@@ -45,7 +45,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_pod_preset(namespacebody, opts)
+  result = api_instance.create_namespaced_pod_preset(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling SettingsV1alpha1Api->create_namespaced_pod_preset: #{e}"

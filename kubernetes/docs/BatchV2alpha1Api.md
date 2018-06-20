@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_cron_job**
-> V2alpha1CronJob create_namespaced_cron_job(namespacebody, opts)
+> V2alpha1CronJob create_namespaced_cron_job(namespace, body, opts)
 
 
 
@@ -48,7 +48,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_cron_job(namespacebody, opts)
+  result = api_instance.create_namespaced_cron_job(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling BatchV2alpha1Api->create_namespaced_cron_job: #{e}"

@@ -3301,7 +3301,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_config_map**
-> V1ConfigMap create_namespaced_config_map(namespacebody, opts)
+> V1ConfigMap create_namespaced_config_map(namespace, body, opts)
 
 
 
@@ -3330,7 +3330,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_config_map(namespacebody, opts)
+  result = api_instance.create_namespaced_config_map(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_config_map: #{e}"
@@ -3361,7 +3361,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_endpoints**
-> V1Endpoints create_namespaced_endpoints(namespacebody, opts)
+> V1Endpoints create_namespaced_endpoints(namespace, body, opts)
 
 
 
@@ -3390,7 +3390,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_endpoints(namespacebody, opts)
+  result = api_instance.create_namespaced_endpoints(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_endpoints: #{e}"
@@ -3421,7 +3421,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_event**
-> V1Event create_namespaced_event(namespacebody, opts)
+> V1Event create_namespaced_event(namespace, body, opts)
 
 
 
@@ -3450,7 +3450,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_event(namespacebody, opts)
+  result = api_instance.create_namespaced_event(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_event: #{e}"
@@ -3481,7 +3481,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_limit_range**
-> V1LimitRange create_namespaced_limit_range(namespacebody, opts)
+> V1LimitRange create_namespaced_limit_range(namespace, body, opts)
 
 
 
@@ -3510,7 +3510,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_limit_range(namespacebody, opts)
+  result = api_instance.create_namespaced_limit_range(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_limit_range: #{e}"
@@ -3541,7 +3541,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_persistent_volume_claim**
-> V1PersistentVolumeClaim create_namespaced_persistent_volume_claim(namespacebody, opts)
+> V1PersistentVolumeClaim create_namespaced_persistent_volume_claim(namespace, body, opts)
 
 
 
@@ -3570,7 +3570,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_persistent_volume_claim(namespacebody, opts)
+  result = api_instance.create_namespaced_persistent_volume_claim(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_persistent_volume_claim: #{e}"
@@ -3601,7 +3601,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_pod**
-> V1Pod create_namespaced_pod(namespacebody, opts)
+> V1Pod create_namespaced_pod(namespace, body, opts)
 
 
 
@@ -3630,7 +3630,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_pod(namespacebody, opts)
+  result = api_instance.create_namespaced_pod(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_pod: #{e}"
@@ -3787,7 +3787,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_pod_template**
-> V1PodTemplate create_namespaced_pod_template(namespacebody, opts)
+> V1PodTemplate create_namespaced_pod_template(namespace, body, opts)
 
 
 
@@ -3816,7 +3816,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_pod_template(namespacebody, opts)
+  result = api_instance.create_namespaced_pod_template(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_pod_template: #{e}"
@@ -3847,7 +3847,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_replication_controller**
-> V1ReplicationController create_namespaced_replication_controller(namespacebody, opts)
+> V1ReplicationController create_namespaced_replication_controller(namespace, body, opts)
 
 
 
@@ -3876,7 +3876,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_replication_controller(namespacebody, opts)
+  result = api_instance.create_namespaced_replication_controller(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_replication_controller: #{e}"
@@ -3907,7 +3907,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_resource_quota**
-> V1ResourceQuota create_namespaced_resource_quota(namespacebody, opts)
+> V1ResourceQuota create_namespaced_resource_quota(namespace, body, opts)
 
 
 
@@ -3936,7 +3936,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_resource_quota(namespacebody, opts)
+  result = api_instance.create_namespaced_resource_quota(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_resource_quota: #{e}"
@@ -3967,7 +3967,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_secret**
-> V1Secret create_namespaced_secret(namespacebody, opts)
+> V1Secret create_namespaced_secret(namespace, body, opts)
 
 
 
@@ -3996,7 +3996,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_secret(namespacebody, opts)
+  result = api_instance.create_namespaced_secret(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_secret: #{e}"
@@ -4087,7 +4087,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_service_account**
-> V1ServiceAccount create_namespaced_service_account(namespacebody, opts)
+> V1ServiceAccount create_namespaced_service_account(namespace, body, opts)
 
 
 
@@ -4116,7 +4116,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_service_account(namespacebody, opts)
+  result = api_instance.create_namespaced_service_account(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling CoreV1Api->create_namespaced_service_account: #{e}"

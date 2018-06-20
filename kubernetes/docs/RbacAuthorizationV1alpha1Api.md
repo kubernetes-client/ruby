@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_role**
-> V1alpha1Role create_namespaced_role(namespacebody, opts)
+> V1alpha1Role create_namespaced_role(namespace, body, opts)
 
 
 
@@ -181,7 +181,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_role(namespacebody, opts)
+  result = api_instance.create_namespaced_role(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling RbacAuthorizationV1alpha1Api->create_namespaced_role: #{e}"
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_role_binding**
-> V1alpha1RoleBinding create_namespaced_role_binding(namespacebody, opts)
+> V1alpha1RoleBinding create_namespaced_role_binding(namespace, body, opts)
 
 
 
@@ -241,7 +241,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_role_binding(namespacebody, opts)
+  result = api_instance.create_namespaced_role_binding(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling RbacAuthorizationV1alpha1Api->create_namespaced_role_binding: #{e}"

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_horizontal_pod_autoscaler**
-> V2beta1HorizontalPodAutoscaler create_namespaced_horizontal_pod_autoscaler(namespacebody, opts)
+> V2beta1HorizontalPodAutoscaler create_namespaced_horizontal_pod_autoscaler(namespace, body, opts)
 
 
 
@@ -48,7 +48,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_horizontal_pod_autoscaler(namespacebody, opts)
+  result = api_instance.create_namespaced_horizontal_pod_autoscaler(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AutoscalingV2beta1Api->create_namespaced_horizontal_pod_autoscaler: #{e}"

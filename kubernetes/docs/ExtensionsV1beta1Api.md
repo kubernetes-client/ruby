@@ -77,7 +77,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_daemon_set**
-> V1beta1DaemonSet create_namespaced_daemon_set(namespacebody, opts)
+> V1beta1DaemonSet create_namespaced_daemon_set(namespace, body, opts)
 
 
 
@@ -106,7 +106,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_daemon_set(namespacebody, opts)
+  result = api_instance.create_namespaced_daemon_set(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling ExtensionsV1beta1Api->create_namespaced_daemon_set: #{e}"
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_deployment**
-> ExtensionsV1beta1Deployment create_namespaced_deployment(namespacebody, opts)
+> ExtensionsV1beta1Deployment create_namespaced_deployment(namespace, body, opts)
 
 
 
@@ -166,7 +166,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_deployment(namespacebody, opts)
+  result = api_instance.create_namespaced_deployment(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling ExtensionsV1beta1Api->create_namespaced_deployment: #{e}"
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_ingress**
-> V1beta1Ingress create_namespaced_ingress(namespacebody, opts)
+> V1beta1Ingress create_namespaced_ingress(namespace, body, opts)
 
 
 
@@ -289,7 +289,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_ingress(namespacebody, opts)
+  result = api_instance.create_namespaced_ingress(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling ExtensionsV1beta1Api->create_namespaced_ingress: #{e}"
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_network_policy**
-> V1beta1NetworkPolicy create_namespaced_network_policy(namespacebody, opts)
+> V1beta1NetworkPolicy create_namespaced_network_policy(namespace, body, opts)
 
 
 
@@ -349,7 +349,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_network_policy(namespacebody, opts)
+  result = api_instance.create_namespaced_network_policy(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling ExtensionsV1beta1Api->create_namespaced_network_policy: #{e}"
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 
 
 # **create_namespaced_replica_set**
-> V1beta1ReplicaSet create_namespaced_replica_set(namespacebody, opts)
+> V1beta1ReplicaSet create_namespaced_replica_set(namespace, body, opts)
 
 
 
@@ -409,7 +409,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_replica_set(namespacebody, opts)
+  result = api_instance.create_namespaced_replica_set(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling ExtensionsV1beta1Api->create_namespaced_replica_set: #{e}"

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **create_namespaced_pod_disruption_budget**
-> V1beta1PodDisruptionBudget create_namespaced_pod_disruption_budget(namespacebody, opts)
+> V1beta1PodDisruptionBudget create_namespaced_pod_disruption_budget(namespace, body, opts)
 
 
 
@@ -48,7 +48,7 @@ opts = {
 }
 
 begin
-  result = api_instance.create_namespaced_pod_disruption_budget(namespacebody, opts)
+  result = api_instance.create_namespaced_pod_disruption_budget(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling PolicyV1beta1Api->create_namespaced_pod_disruption_budget: #{e}"
