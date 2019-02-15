@@ -73,7 +73,10 @@ module Kubernetes
           c.base_path = server.path
 
           if server.scheme == 'https'
-            c.verify_ssl = cluster['verify_ssl']
+            if ! cluster['verify-ssl']
+              c.verify_ssl = false
+              c.verify_ssl_host = false
+            end
             c.ssl_ca_cert = cluster['certificate-authority']
             c.cert_file = user['client-certificate']
             c.key_file = user['client-key']
