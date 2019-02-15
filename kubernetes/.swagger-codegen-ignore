@@ -21,3 +21,8 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+# Hand coded stuff
+lib/kubernetes/config/*
+# This isn't great, but the generated client doesn't quite work.
+lib/kubernetes/api_client.rb

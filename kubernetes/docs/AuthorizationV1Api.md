@@ -37,6 +37,8 @@ namespace = "namespace_example" # String | object name and auth scope, such as f
 body = Kubernetes::V1LocalSubjectAccessReview.new # V1LocalSubjectAccessReview | 
 
 opts = { 
+  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
   pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
 }
 
@@ -54,6 +56,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **body** | [**V1LocalSubjectAccessReview**](V1LocalSubjectAccessReview.md)|  | 
+ **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -95,6 +99,8 @@ api_instance = Kubernetes::AuthorizationV1Api.new
 body = Kubernetes::V1SelfSubjectAccessReview.new # V1SelfSubjectAccessReview | 
 
 opts = { 
+  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
   pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
 }
 
@@ -111,6 +117,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1SelfSubjectAccessReview**](V1SelfSubjectAccessReview.md)|  | 
+ **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -152,6 +160,8 @@ api_instance = Kubernetes::AuthorizationV1Api.new
 body = Kubernetes::V1SelfSubjectRulesReview.new # V1SelfSubjectRulesReview | 
 
 opts = { 
+  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
   pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
 }
 
@@ -168,6 +178,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1SelfSubjectRulesReview**](V1SelfSubjectRulesReview.md)|  | 
+ **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -209,6 +221,8 @@ api_instance = Kubernetes::AuthorizationV1Api.new
 body = Kubernetes::V1SubjectAccessReview.new # V1SubjectAccessReview | 
 
 opts = { 
+  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
   pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
 }
 
@@ -225,6 +239,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1SubjectAccessReview**](V1SubjectAccessReview.md)|  | 
+ **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type

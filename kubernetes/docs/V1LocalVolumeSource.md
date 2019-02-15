@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **String** | The full path to the volume on the node For alpha, this path must be a directory Once block as a source is supported, then this path can point to a block device | 
+**fs_type** | **String** | Filesystem type to mount. It applies only when the Path is a block device. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. The default value is to auto-select a fileystem if unspecified. | [optional] 
+**path** | **String** | The full path to the volume on the node. It can be either a directory or block device (disk, partition, ...). | 
 
 
