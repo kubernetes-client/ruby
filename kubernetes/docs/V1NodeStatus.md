@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **allocatable** | **Hash&lt;String, String&gt;** | Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity. | [optional] 
 **capacity** | **Hash&lt;String, String&gt;** | Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity | [optional] 
 **conditions** | [**Array&lt;V1NodeCondition&gt;**](V1NodeCondition.md) | Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition | [optional] 
+**config** | [**V1NodeConfigStatus**](V1NodeConfigStatus.md) | Status of the config assigned to the node via the dynamic Kubelet config feature. | [optional] 
 **daemon_endpoints** | [**V1NodeDaemonEndpoints**](V1NodeDaemonEndpoints.md) | Endpoints of daemons running on the Node. | [optional] 
 **images** | [**Array&lt;V1ContainerImage&gt;**](V1ContainerImage.md) | List of container images on this node | [optional] 
 **node_info** | [**V1NodeSystemInfo**](V1NodeSystemInfo.md) | Set of ids/uuids to uniquely identify the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#info | [optional] 

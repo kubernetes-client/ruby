@@ -32,6 +32,8 @@ api_instance = Kubernetes::AuthenticationV1beta1Api.new
 body = Kubernetes::V1beta1TokenReview.new # V1beta1TokenReview | 
 
 opts = { 
+  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
   pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
 }
 
@@ -48,6 +50,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1TokenReview**](V1beta1TokenReview.md)|  | 
+ **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
