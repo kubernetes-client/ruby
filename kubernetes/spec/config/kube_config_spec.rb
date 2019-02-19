@@ -16,12 +16,13 @@ require 'base64'
 require 'spec_helper'
 require 'config/matchers'
 require 'fixtures/config/kube_config_hash'
+require 'helpers/file_fixtures'
 
 require 'kubernetes/config/kube_config'
 
 
 describe Kubernetes::KubeConfig do
-  let(:kube_config) { Kubernetes::KubeConfig.new(file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
+  let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
 
   context '#configure' do
     context 'if non user context is given' do
@@ -42,9 +43,9 @@ describe Kubernetes::KubeConfig do
         expected = Kubernetes::Configuration.new do |c|
           c.scheme = 'https'
           c.host = 'test-host:443'
-          c.ssl_ca_cert = file_fixture('certs/ca.crt').to_s
-          c.cert_file = file_fixture('certs/client.crt').to_s
-          c.key_file = file_fixture('certs/client.key').to_s
+          c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+          c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
+          c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
         end
         actual = Kubernetes::Configuration.new
 
@@ -58,7 +59,7 @@ describe Kubernetes::KubeConfig do
         expected = Kubernetes::Configuration.new do |c|
           c.scheme = 'https'
           c.host = 'test-host:443'
-          c.ssl_ca_cert = file_fixture('certs/ca.crt').to_s
+          c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
           c.api_key['authorization'] = "Bearer #{TEST_DATA_BASE64}"
         end
         actual = Kubernetes::Configuration.new
@@ -71,7 +72,7 @@ describe Kubernetes::KubeConfig do
 
   context '#config' do
     context 'if config hash is not given when it is initialized' do
-      let(:kube_config) { Kubernetes::KubeConfig.new(file_fixture('config/empty').to_s) }
+      let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/empty').to_s) }
       it 'should load config' do
         expect(kube_config.config).to eq({})
       end
@@ -79,7 +80,7 @@ describe Kubernetes::KubeConfig do
 
     context 'if config hash is given when it is initialized' do
       let(:given_hash) { {given: 'hash'} }
-      let(:kube_config) { Kubernetes::KubeConfig.new(file_fixture('config/empty').to_s, given_hash) }
+      let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/empty').to_s, given_hash) }
 
       it 'should not load config' do
         expect(kube_config.config).to eq(given_hash)

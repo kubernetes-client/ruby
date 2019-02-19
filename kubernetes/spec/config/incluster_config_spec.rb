@@ -14,6 +14,7 @@
 
 require 'spec_helper'
 require 'config/matchers'
+require 'helpers/file_fixtures'
 
 require 'kubernetes/config/incluster_config'
 
@@ -27,8 +28,8 @@ describe Kubernetes::InClusterConfig do
           Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME => 'localhost',
           Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443',
         })
-        c.instance_variable_set(:@ca_cert, file_fixture('certs/ca.crt').to_s)
-        c.instance_variable_set(:@token_file, file_fixture('tokens/token').to_s)
+        c.instance_variable_set(:@ca_cert, Kubernetes::Testing::file_fixture('certs/ca.crt').to_s)
+        c.instance_variable_set(:@token_file, Kubernetes::Testing::file_fixture('tokens/token').to_s)
       end
     end
 
@@ -36,7 +37,7 @@ describe Kubernetes::InClusterConfig do
       expected = Kubernetes::Configuration.new do |c|
         c.scheme = 'https'
         c.host = 'localhost:443'
-        c.ssl_ca_cert = file_fixture('certs/ca.crt').to_s
+        c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
         c.api_key['authorization'] = 'Bearer token1'
       end
       actual = Kubernetes::Configuration.new
@@ -53,8 +54,8 @@ describe Kubernetes::InClusterConfig do
           Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME => 'localhost',
           Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443',
         })
-        c.instance_variable_set(:@ca_cert, file_fixture('certs/ca.crt').to_s)
-        c.instance_variable_set(:@token_file, file_fixture('tokens/token').to_s)
+        c.instance_variable_set(:@ca_cert, Kubernetes::Testing::file_fixture('certs/ca.crt').to_s)
+        c.instance_variable_set(:@token_file, Kubernetes::Testing::file_fixture('tokens/token').to_s)
       end
     end
 

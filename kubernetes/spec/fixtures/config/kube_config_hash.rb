@@ -13,6 +13,7 @@
 # limitations under the License.
 
 require 'base64'
+require 'helpers/file_fixtures'
 
 
 TEST_TOKEN_FILE = Kubernetes::Testing.file_fixture('tokens/token')
