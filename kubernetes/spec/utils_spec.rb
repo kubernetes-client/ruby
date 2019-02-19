@@ -15,6 +15,7 @@
 require 'spec_helper'
 require 'config/matchers'
 require 'fixtures/config/kube_config_hash'
+require 'helpers/file_fixtures'
 
 require 'kubernetes/utils'
 
@@ -28,8 +29,8 @@ describe Kubernetes do
           Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME => 'localhost',
           Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443',
         })
-        c.instance_variable_set(:@ca_cert, file_fixture('certs/ca.crt').to_s)
-        c.instance_variable_set(:@token_file, file_fixture('tokens/token').to_s)
+        c.instance_variable_set(:@ca_cert, Kubernetes::Testing::file_fixture('certs/ca.crt').to_s)
+        c.instance_variable_set(:@token_file, Kubernetes::Testing::file_fixture('tokens/token').to_s)
       end
     end
 
@@ -38,7 +39,7 @@ describe Kubernetes do
       expected = Kubernetes::Configuration.new do |c|
         c.scheme = 'https'
         c.host = 'localhost:443'
-        c.ssl_ca_cert = file_fixture('certs/ca.crt').to_s
+        c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
         c.api_key['authorization'] = 'Bearer token1'
       end
       actual = Kubernetes::Configuration.new
@@ -49,7 +50,7 @@ describe Kubernetes do
   end
 
   describe '.load_kube_config' do
-    let(:kube_config) { Kubernetes::KubeConfig.new(file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
+    let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
 
     it 'should configure client configuration from kube_config' do
       kubeconfig_path = 'kubeconfig/path'
@@ -57,9 +58,9 @@ describe Kubernetes do
       expected = Kubernetes::Configuration.new do |c|
         c.scheme = 'https'
         c.host = 'test-host:443'
-        c.ssl_ca_cert = file_fixture('certs/ca.crt').to_s
-        c.cert_file = file_fixture('certs/client.crt').to_s
-        c.key_file = file_fixture('certs/client.key').to_s
+        c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+        c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
+        c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
       end
       actual = Kubernetes::Configuration.new
 
