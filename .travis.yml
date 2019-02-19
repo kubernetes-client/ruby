@@ -1,0 +1,4 @@
+gemfile: kubernetes/Gemfile
+rvm:
+  - 2.6
+script: sh -c 'cd kubernetes && bundle exec rspec'
