@@ -55,6 +55,13 @@ TEST_CONTEXT_SSL = {
     'user' => 'user_cert_file',
   }
 }
+TEST_CONTEXT_INSECURE = {
+  'name' => 'context_insecure',
+  'context' => {
+    'cluster' => 'ssl-data-insecure',
+    'user' => 'user_cert_file',
+  }
+}
 TEST_CONTEXT_TOKEN = {
   'name' => 'context_token',
   'context' => {
@@ -87,7 +94,7 @@ TEST_CLUSTER_INSECURE = {
   'name' => 'ssl-data-insecure',
   'cluster' => {
     'server' => TEST_SSL_HOST,
-    'certificate-authority-data' => TEST_CERTIFICATE_AUTH_BASE64,
+    'certificate-authority' => Kubernetes::Testing.file_fixture('certs/ca.crt').to_s,
     'insecure-skip-tls-verify' => true,
   },
 }
@@ -144,6 +151,7 @@ TEST_KUBE_CONFIG = {
     TEST_CONTEXT_NO_USER,
     TEST_CONTEXT_SSL,
     TEST_CONTEXT_TOKEN,
+    TEST_CONTEXT_INSECURE,
   ],
   'clusters' => [
     TEST_CLUSTER_DEFAULT,
