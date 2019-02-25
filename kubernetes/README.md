@@ -23,9 +23,9 @@ gem build kubernetes.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./kubernetes-1.0.0-alpha2.gem
+gem install ./kubernetes-1.0.0.pre.alpha2.gem
 ```
-(for development, run `gem install --dev ./kubernetes-1.0.0-alpha2.gem` to install the development dependencies)
+(for development, run `gem install --dev ./kubernetes-1.0.0.pre.alpha2.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
