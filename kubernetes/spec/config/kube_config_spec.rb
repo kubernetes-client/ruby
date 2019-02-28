@@ -46,11 +46,32 @@ describe Kubernetes::KubeConfig do
           c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
           c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
           c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
+          c.verify_ssl = true
         end
         actual = Kubernetes::Configuration.new
 
         kube_config.configure(actual, 'context_ssl')
         expect(actual).to be_same_configuration_as(expected)
+      end
+    end
+
+    context 'if ssl no-verify context is given' do
+      it 'should configure ssl configuration' do
+        expected = Kubernetes::Configuration.new do |c|
+          c.scheme = 'https'
+          c.host = 'test-host:443'
+          c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+          c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
+          c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
+          c.verify_ssl = false
+          c.verify_ssl_host = false
+        end
+        actual = Kubernetes::Configuration.new
+
+        kube_config.configure(actual, 'context_insecure')
+        expect(actual).to be_same_configuration_as(expected)
+        expect(actual.verify_ssl_host).to be_falsey
+        expect(actual.verify_ssl).to be_falsey
       end
     end
 
@@ -175,7 +196,7 @@ describe Kubernetes::KubeConfig do
 
   context '#list_context_names' do
     it 'should list context names' do
-      expect(kube_config.list_context_names.sort).to eq(["default", "no_user", "context_ssl", "context_token"].sort)
+      expect(kube_config.list_context_names.sort).to eq(["default", "no_user", "context_ssl", "context_insecure", "context_token"].sort)
     end
   end
 
