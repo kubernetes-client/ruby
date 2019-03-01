@@ -33,6 +33,6 @@ module Kubernetes
       end
     end
 
-    extend FileFixtures
+    Object.include FileFixtures
   end
 end
