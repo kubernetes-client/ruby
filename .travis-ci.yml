@@ -1,0 +1,8 @@
+language: ruby
+gemfile: kubernetes/Gemfile
+cache: bundler
+sudo: false
+before_install:
+  - gem update --system
+  - gem install bundler
+script: sh -e 'cd kubernetes && bundle exec rspec'
