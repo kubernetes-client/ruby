@@ -41,5 +41,5 @@ Gem::Specification.new do |s|
   s.files         = `find *`.split("\n").uniq.sort.select{|f| !f.empty? }
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
-  s.require_paths = ["lib"]
+  s.require_paths = ["lib", "src"]
 end
