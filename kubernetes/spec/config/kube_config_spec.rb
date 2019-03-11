@@ -13,12 +13,13 @@
 # limitations under the License.
 
 require 'base64'
-require 'spec_helper'
 require 'config/matchers'
 require 'fixtures/config/kube_config_hash'
 require 'helpers/file_fixtures'
+require 'spec_helper'
 
 require 'kubernetes/config/kube_config'
+require 'kubernetes/loader'
 
 
 describe Kubernetes::KubeConfig do
@@ -245,6 +246,62 @@ describe Kubernetes::KubeConfig do
         expect(io).not_to receive(:write).with(TEST_DATA)
 
         expect(kube_config.send(:create_temp_file_with_base64content, content)).to eq(expected_path)
+      end
+    end
+
+    context 'load from defaults' do
+      before(:each) do
+        # Clear out everything before each run.
+        ENV['HOME'] = nil
+        ENV['KUBECONFIG'] = nil
+        ENV['KUBERNETES_SERVICE_HOST'] = nil
+        ENV['KUBERNETES_SERVICE_PORT'] = nil
+        
+        # Suppress warnings
+        warn_level = $VERBOSE
+        $VERBOSE = nil
+        Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME = '/non/existent/file/token'
+        Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME = '/non/existent/file/ca.crt'
+        $VERBOSE = warn_level
+      end
+
+      it 'should load from KUBECONFIG' do
+        ENV['KUBECONFIG'] = Kubernetes::Testing::file_fixture('config/config_2').to_s
+        ENV['HOME'] = Kubernetes::Testing::file_fixture('config').to_s
+        config = Kubernetes::Configuration::default_config
+
+        expect(config.host).to eq('other:8080')
+      end
+
+      it 'should load from HOME' do
+        ENV['HOME'] = Kubernetes::Testing::file_fixture('config').to_s
+        config = Kubernetes::Configuration::default_config
+
+        expect(config.host).to eq('firstconfig:8080')
+      end
+
+      it 'should load from cluster' do
+        ENV['KUBERNETES_SERVICE_HOST'] = 'kubernetes'
+        ENV['KUBERNETES_SERVICE_PORT'] = '8888'
+
+        # Suppress warnings
+        warn_level = $VERBOSE
+        $VERBOSE = nil
+
+        # Override constants for token and cert locations
+        Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME = Kubernetes::Testing::file_fixture('config/config').to_s
+        Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+        $VERBOSE = warn_level
+
+        config = Kubernetes::Configuration::default_config
+
+        expect(config.host).to eq('kubernetes:8888')
+      end
+
+      it 'should default to localhost' do
+        config = Kubernetes::Configuration::default_config
+
+        expect(config.host).to eq('localhost:8080')
       end
     end
   end

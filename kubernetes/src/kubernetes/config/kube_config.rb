@@ -57,6 +57,9 @@ module Kubernetes
 
     def configure(configuration, context_name=nil)
       context = context_name ? self.find_context(context_name) : self.current_context
+      if !context
+        return
+      end
       user = context['user'] || {}
       cluster = context['cluster'] || {}
 
@@ -73,8 +76,8 @@ module Kubernetes
           c.base_path = server.path
 
           if server.scheme == 'https'
-            c.verify_ssl = cluster['verify-ssl']
-            c.verify_ssl_host = cluster['verify-ssl']
+            c.verify_ssl = !!cluster['verify-ssl']
+            c.verify_ssl_host = !!cluster['verify-ssl']
             c.ssl_ca_cert = cluster['certificate-authority']
             c.cert_file = user['client-certificate']
             c.key_file = user['client-key']
@@ -92,6 +95,9 @@ module Kubernetes
 
     def find_user(name)
       self.find_by_name(self.config['users'], 'user', name).tap do |user|
+        if !user
+          return
+        end
         create_temp_file_and_set(user, 'client-certificate')
         create_temp_file_and_set(user, 'client-key')
         # If tokenFile is specified, then set token
@@ -122,7 +128,9 @@ module Kubernetes
     end
 
     def current_context
-      find_context(self.config['current-context'])
+      if self.config
+        find_context(self.config['current-context'])
+      end
     end
 
     protected
@@ -133,6 +141,9 @@ module Kubernetes
     end
 
     def create_temp_file_and_set(obj, key)
+      if !obj
+        return
+      end
       if !obj[key] && obj["#{key}-data"]
         obj[key] = create_temp_file_with_base64content(obj["#{key}-data"])
       end

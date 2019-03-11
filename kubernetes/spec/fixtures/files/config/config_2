@@ -1,0 +1,15 @@
+apiVersion: v1
+clusters:
+- name: default
+  cluster:
+    server: http://other:8080
+contexts:
+- name: some_user
+  context:
+    cluster: default
+    user: someone
+current-context: some_user
+kind: Config
+preferences: {}
+users:
+- name: someone

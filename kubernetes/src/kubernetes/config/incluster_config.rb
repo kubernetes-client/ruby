@@ -36,6 +36,10 @@ module Kubernetes
       raise ConfigError.new("Service token file does not exists") unless File.file?(self.ca_cert)
     end
 
+    def self.in_cluster?()
+      return File.exist?(SERVICE_TOKEN_FILENAME) && File.exist?(SERVICE_CA_CERT_FILENAME)
+    end
+
     def env
       @env ||= ENV
       @env
