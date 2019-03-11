@@ -28,7 +28,7 @@ module Kubernetes
           path
         else
           msg = "the directory '%s' does not contain a file named '%s'"
-          raise ArgumentError, msg % [file_fixture_path, fixture_name]
+          raise ArgumentError, msg % [FIXTURES_DIR_PATH, fixture_name]
         end
       end
     end

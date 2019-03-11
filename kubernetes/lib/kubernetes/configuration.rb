@@ -153,35 +153,6 @@ module Kubernetes
       @@default ||= Configuration.new
     end
 
-    def self.default_config()
-      # KUBECONFIG environment variable
-      result = Configuration.new()
-      kc = "#{ENV['KUBECONFIG']}"
-      if File.exist?(kc)
-        k_config = KubeConfig.new(kc)
-        k_config.configure(result)
-        return result
-      end
-      # default home location
-      kc = "#{ENV['HOME']}/.kube/config"
-      if File.exist?(kc)
-        k_config = KubeConfig.new(kc)
-        k_config.configure(result)
-        return result
-      end
-      # In cluster config
-      if InClusterConfig::is_in_cluster()
-        k_config = InClusterConfig.new()
-        k_config.configure(result)
-        return result
-      end
-
-      result.scheme = 'http'
-      result.host = 'localhost:8080'
-      return result
-    end
-
-
     def configure
       yield(self) if block_given?
     end
