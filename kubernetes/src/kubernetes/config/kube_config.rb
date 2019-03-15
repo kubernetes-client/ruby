@@ -22,138 +22,140 @@ require 'kubernetes/configuration'
 require 'kubernetes/config/error'
 
 module Kubernetes
-
+  # The KubeConfig class represents configuration based on a YAML
+  # representation.
   class KubeConfig
-
     KUBE_CONFIG_DEFAULT_LOCATION = File.expand_path('~/.kube/config')
+    AUTH_KEY = 'authorization'.freeze
 
     class << self
-
-      def list_context_names(config_file=KUBE_CONFIG_DEFAULT_LOCATION)
-        config = self.new(config_file)
-        return config.list_context_names
+      def list_context_names(config_file = KUBE_CONFIG_DEFAULT_LOCATION)
+        config = new(config_file)
+        config.list_context_names
       end
-
     end
 
-    @@temp_files = {}
     attr_accessor :path
     attr_writer :config
 
-    def initialize(path, config_hash=nil)
+    def initialize(path, config_hash = nil)
       @path = path
       @config = config_hash
     end
 
     def base_path
-      File.dirname(self.path)
+      File.dirname(path)
     end
 
     def config
-      @config ||= open(self.path) do |io|
-        ::YAML.load(io.read)
+      @config ||= File.open(path) do |io|
+        ::YAML.safe_load(io.read)
       end
     end
 
-    def configure(configuration, context_name=nil)
-      context = context_name ? self.find_context(context_name) : self.current_context
-      if !context
-        return
-      end
+    def configure(configuration, context_name = nil)
+      context = context_name ? find_context(context_name) : current_context
+      return unless context
+
       user = context['user'] || {}
       cluster = context['cluster'] || {}
 
       configuration.tap do |c|
-        if user['authorization']
-          c.api_key['authorization'] = user['authorization']
-        end
-        if server = cluster['server']
-          server = URI.parse(server)
-          c.scheme = server.scheme
-          host = "#{server.host}:#{server.port}"
-          host = "#{server.userinfo}@#{host}" if server.userinfo
-          c.host = host
-          c.base_path = server.path
+        c.api_key[AUTH_KEY] = user[AUTH_KEY] if user[AUTH_KEY]
 
-          if server.scheme == 'https'
-            c.verify_ssl = !!cluster['verify-ssl']
-            c.verify_ssl_host = !!cluster['verify-ssl']
-            c.ssl_ca_cert = cluster['certificate-authority']
-            c.cert_file = user['client-certificate']
-            c.key_file = user['client-key']
-          end
-        end
+        init_server(cluster, user, c)
       end
     end
 
+    def init_server(cluster, user, config)
+      return unless (server = cluster['server'])
+
+      server = URI.parse(server)
+      config.scheme = server.scheme
+      host = "#{server.host}:#{server.port}"
+      host = "#{server.userinfo}@#{host}" if server.userinfo
+      config.host = host
+      config.base_path = server.path
+
+      return unless server.scheme == 'https'
+
+      setup_ssl(cluster, user, config)
+    end
+
+    def setup_ssl(cluster, user, config)
+      # rubocop:disable DoubleNegation
+      config.verify_ssl = !!cluster['verify-ssl']
+      config.verify_ssl_host = !!cluster['verify-ssl']
+      # rubocop:enable DoubleNegation
+
+      config.ssl_ca_cert = cluster['certificate-authority']
+      config.cert_file = user['client-certificate']
+      config.key_file = user['client-key']
+    end
+
     def find_cluster(name)
-      self.find_by_name(self.config['clusters'], 'cluster', name).tap do |cluster|
-        create_temp_file_and_set(cluster, 'certificate-authority')
+      find_by_name(config['clusters'], 'cluster', name).tap do |cluster|
+        Kubernetes.create_temp_file_and_set(cluster, 'certificate-authority')
         cluster['verify_ssl'] = !cluster['insecure-skip-tls-verify']
       end
     end
 
     def find_user(name)
-      self.find_by_name(self.config['users'], 'user', name).tap do |user|
-        if !user
-          return
-        end
-        create_temp_file_and_set(user, 'client-certificate')
-        create_temp_file_and_set(user, 'client-key')
-        # If tokenFile is specified, then set token
-        if !user['token'] && user['tokenFile']
-          open(user['tokenFile']) do |io|
-            user['token'] = io.read.chomp
-          end
-        end
-        # Convert token field to http header
-        if user['token']
-          user['authorization'] = "Bearer #{user['token']}"
-        elsif user['username'] && user['password']
-          user_pass = "#{user['username']}:#{user['password']}"
-          user['authorization'] = "Basic #{Base64.strict_encode64(user_pass)}"
-        end
+      find_by_name(config['users'], 'user', name).tap do |user|
+        next unless user
+
+        Kubernetes.create_temp_file_and_set(user, 'client-certificate')
+        Kubernetes.create_temp_file_and_set(user, 'client-key')
+        load_token_file(user)
+        setup_auth(user)
+      end
+    end
+
+    def load_token_file(user)
+      # If tokenFile is specified, then set token
+      return unless !user['token'] && user['tokenFile']
+
+      File.open(user['tokenFile']) do |io|
+        user['token'] = io.read.chomp
+      end
+    end
+
+    def setup_auth(user)
+      # Convert token field to http header
+      if user['token']
+        user['authorization'] = "Bearer #{user['token']}"
+      elsif user['username'] && user['password']
+        user_pass = "#{user['username']}:#{user['password']}"
+        user['authorization'] = "Basic #{Base64.strict_encode64(user_pass)}"
       end
     end
 
     def list_context_names
-      self.config['contexts'].map { |e| e['name'] }
+      config['contexts'].map { |e| e['name'] }
     end
 
     def find_context(name)
-      self.find_by_name(self.config['contexts'], 'context', name).tap do |context|
-        context['cluster'] = find_cluster(context['cluster']) if context['cluster']
+      find_by_name(config['contexts'], 'context', name).tap do |context|
+        if context['cluster']
+          context['cluster'] = find_cluster(context['cluster'])
+        end
         context['user'] = find_user(context['user']) if context['user']
       end
     end
 
     def current_context
-      if self.config
-        find_context(self.config['current-context'])
-      end
+      return unless config
+
+      find_context(config['current-context'])
     end
 
     protected
+
     def find_by_name(list, key, name)
-      obj = list.find {|item| item['name'] == name }
-      raise ConfigError.new("#{key}: #{name} not found") unless obj
+      obj = list.find { |item| item['name'] == name }
+      raise ConfigError, "#{key}: #{name} not found" unless obj
+
       obj[key].dup
-    end
-
-    def create_temp_file_and_set(obj, key)
-      if !obj
-        return
-      end
-      if !obj[key] && obj["#{key}-data"]
-        obj[key] = create_temp_file_with_base64content(obj["#{key}-data"])
-      end
-    end
-
-    def create_temp_file_with_base64content(content)
-      @@temp_files[content] ||= Tempfile.open('kube') do |temp|
-        temp.write(Base64.strict_decode64(content))
-        temp.path
-      end
     end
   end
 end

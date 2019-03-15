@@ -72,4 +72,32 @@ describe Kubernetes do
       expect(actual).to be_same_configuration_as(expected)
     end
   end
+
+  context '#create_temp_file_with_base64content' do
+    context 'when it is called at first time' do
+      it 'should return temp file path' do
+        expected_path = 'tempfile-path'
+        content = TEST_DATA_BASE64
+        io = double('io')
+        expect(io).to receive(:path).and_return(expected_path)
+        expect(io).to receive(:write).with(TEST_DATA)
+        allow(Tempfile).to receive(:open).and_yield(io)
+
+        expect(Kubernetes.create_temp_file_with_base64content(content)).to eq(expected_path)
+      end
+    end
+
+    context 'when it is already called' do
+      it 'should return cached value' do
+        expected_path = 'tempfile-path'
+        content = TEST_DATA_BASE64
+        Kubernetes::cache_temp_file(content, expected_path)
+        io = double('io')
+        expect(io).not_to receive(:path)
+        expect(io).not_to receive(:write).with(TEST_DATA)
+
+        expect(Kubernetes.create_temp_file_with_base64content(content)).to eq(expected_path)
+      end
+    end
+  end
 end

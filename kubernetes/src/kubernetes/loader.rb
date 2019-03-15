@@ -16,33 +16,40 @@ require 'kubernetes/config/incluster_config'
 require 'kubernetes/config/kube_config'
 
 module Kubernetes
-    class Configuration
-        def self.default_config()
-            # KUBECONFIG environment variable
-            result = Configuration.new()
-            kc = "#{ENV['KUBECONFIG']}"
-            if File.exist?(kc)
-              k_config = KubeConfig.new(kc)
-              k_config.configure(result)
-              return result
-            end
-            # default home location
-            kc = "#{ENV['HOME']}/.kube/config"
-            if File.exist?(kc)
-              k_config = KubeConfig.new(kc)
-              k_config.configure(result)
-              return result
-            end
-            # In cluster config
-            if InClusterConfig::in_cluster?
-              k_config = InClusterConfig.new()
-              k_config.configure(result)
-              return result
-            end
-      
-            result.scheme = 'http'
-            result.host = 'localhost:8080'
-            return result
-        end
+  # Configuration is a utility class for loading kubernetes configurations
+  class Configuration
+    def self.default_config
+      result = Configuration.new
+      return result if load_local_config(result)
+
+      # In cluster config
+      if InClusterConfig.in_cluster?
+        k_config = InClusterConfig.new
+        k_config.configure(result)
+        return result
+      end
+
+      result.scheme = 'http'
+      result.host = 'localhost:8080'
+      result
     end
+
+    def self.load_local_config(result)
+      # KUBECONFIG environment variable
+      kc = (ENV['KUBECONFIG']).to_s
+      return load_file_config(kc, result) if File.exist?(kc)
+
+      # default home location
+      kc = "#{ENV['HOME']}/.kube/config"
+      return unless File.exist?(kc)
+
+      load_file_config(kc, result)
+    end
+
+    def self.load_file_config(file, result)
+      k_config = KubeConfig.new(file)
+      k_config.configure(result)
+      result
+    end
+  end
 end

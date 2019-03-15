@@ -16,28 +16,35 @@ require 'kubernetes/configuration'
 require 'kubernetes/config/error'
 
 module Kubernetes
-
+  # The InClusterConfig class represents configuration for authn/authz in a
+  # Kubernetes cluster.
   class InClusterConfig
-
-    SERVICE_HOST_ENV_NAME = "KUBERNETES_SERVICE_HOST"
-    SERVICE_PORT_ENV_NAME = "KUBERNETES_SERVICE_PORT"
-    SERVICE_TOKEN_FILENAME = "/var/run/secrets/kubernetes.io/serviceaccount/token"
-    SERVICE_CA_CERT_FILENAME = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
+    # rubocop:disable LineLength
+    SERVICE_HOST_ENV_NAME = 'KUBERNETES_SERVICE_HOST'.freeze
+    SERVICE_PORT_ENV_NAME = 'KUBERNETES_SERVICE_PORT'.freeze
+    SERVICE_TOKEN_FILENAME = '/var/run/secrets/kubernetes.io/serviceaccount/token'.freeze
+    SERVICE_CA_CERT_FILENAME = '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'.freeze
+    # rubocop:enable LineLength
 
     attr_accessor :host
     attr_accessor :port
     attr_accessor :token
 
     def validate
-      unless (self.host = self.env[SERVICE_HOST_ENV_NAME]) && (self.port = self.env[SERVICE_PORT_ENV_NAME])
-        raise ConfigError.new("Service host/port is not set")
+      unless (self.host = env[SERVICE_HOST_ENV_NAME]) &&
+             (self.port = env[SERVICE_PORT_ENV_NAME])
+        raise ConfigError, 'Service host/port is not set'
       end
-      raise ConfigError.new("Service token file does not exists") unless File.file?(self.token_file)
-      raise ConfigError.new("Service token file does not exists") unless File.file?(self.ca_cert)
+
+      # rubocop:disable LineLength
+      raise ConfigError, 'Service token file does not exists' unless File.file?(token_file)
+      raise ConfigError, 'Service token file does not exists' unless File.file?(ca_cert)
+      # rubocop:enable LineLength
     end
 
-    def self.in_cluster?()
-      return File.exist?(SERVICE_TOKEN_FILENAME) && File.exist?(SERVICE_CA_CERT_FILENAME)
+    def self.in_cluster?
+      File.exist?(SERVICE_TOKEN_FILENAME) &&
+        File.exist?(SERVICE_CA_CERT_FILENAME)
     end
 
     def env
@@ -56,7 +63,7 @@ module Kubernetes
     end
 
     def load_token
-      open(self.token_file) do |io|
+      File.open(token_file) do |io|
         self.token = io.read.chomp
       end
     end
@@ -64,11 +71,10 @@ module Kubernetes
     def configure(configuration)
       validate
       load_token
-      configuration.api_key['authorization'] = "Bearer #{self.token}"
+      configuration.api_key['authorization'] = "Bearer #{token}"
       configuration.scheme = 'https'
-      configuration.host = "#{self.host}:#{self.port}"
-      configuration.ssl_ca_cert = self.ca_cert
+      configuration.host = "#{host}:#{port}"
+      configuration.ssl_ca_cert = ca_cert
     end
   end
-
 end

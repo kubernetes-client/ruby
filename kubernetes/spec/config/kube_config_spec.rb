@@ -222,43 +222,17 @@ describe Kubernetes::KubeConfig do
     end
   end
 
-  context '#create_temp_file_with_base64content' do
-    context 'when it is called at first time' do
-      it 'should return temp file path' do
-        expected_path = 'tempfile-path'
-        content = TEST_DATA_BASE64
-        io = double('io')
-        expect(io).to receive(:path).and_return(expected_path)
-        expect(io).to receive(:write).with(TEST_DATA)
-        allow(Tempfile).to receive(:open).and_yield(io)
 
-        expect(kube_config.send(:create_temp_file_with_base64content, content)).to eq(expected_path)
-      end
-    end
-
-    context 'when it is already called' do
-      it 'should return cached value' do
-        expected_path = 'tempfile-path'
-        content = TEST_DATA_BASE64
-        Kubernetes::KubeConfig.class_eval { class_variable_get(:@@temp_files)[content] = expected_path}
-        io = double('io')
-        expect(io).not_to receive(:path)
-        expect(io).not_to receive(:write).with(TEST_DATA)
-
-        expect(kube_config.send(:create_temp_file_with_base64content, content)).to eq(expected_path)
-      end
-    end
-
-    context 'load from defaults' do
-      before(:each) do
-        # Clear out everything before each run.
-        ENV['HOME'] = nil
-        ENV['KUBECONFIG'] = nil
-        ENV['KUBERNETES_SERVICE_HOST'] = nil
-        ENV['KUBERNETES_SERVICE_PORT'] = nil
+  context 'load from defaults' do
+    before(:each) do
+      # Clear out everything before each run.
+      ENV['HOME'] = nil
+      ENV['KUBECONFIG'] = nil
+      ENV['KUBERNETES_SERVICE_HOST'] = nil
+      ENV['KUBERNETES_SERVICE_PORT'] = nil
         
-        # Suppress warnings
-        warn_level = $VERBOSE
+      # Suppress warnings
+      warn_level = $VERBOSE
         $VERBOSE = nil
         Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME = '/non/existent/file/token'
         Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME = '/non/existent/file/ca.crt'
@@ -304,5 +278,4 @@ describe Kubernetes::KubeConfig do
         expect(config.host).to eq('localhost:8080')
       end
     end
-  end
 end
