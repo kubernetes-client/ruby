@@ -128,6 +128,9 @@ module Kubernetes
       elsif user['username'] && user['password']
         user_pass = "#{user['username']}:#{user['password']}"
         user['authorization'] = "Basic #{Base64.strict_encode64(user_pass)}"
+      elsif user['auth-provider'] && user['auth-provider']['name'] == 'azure'
+        token = user['auth-provider']['config']['access-token']
+        user['authorization'] = "Bearer #{token}"
       end
     end
 

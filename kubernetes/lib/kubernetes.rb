@@ -15,6 +15,7 @@ require 'kubernetes/api_client'
 require 'kubernetes/api_error'
 require 'kubernetes/version'
 require 'kubernetes/configuration'
+require 'kubernetes/loader'
 
 # Configuration
 require 'kubernetes/config/error'
