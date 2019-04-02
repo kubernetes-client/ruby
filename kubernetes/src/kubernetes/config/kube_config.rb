@@ -23,6 +23,7 @@ require 'kubernetes/config/error'
 require 'kubernetes/utils'
 
 module Kubernetes
+  # rubocop:disable ClassLength
   # The KubeConfig class represents configuration based on a YAML
   # representation.
   class KubeConfig
@@ -121,6 +122,7 @@ module Kubernetes
       end
     end
 
+    # rubocop:disable AbcSize
     def setup_auth(user)
       # Convert token field to http header
       if user['token']
@@ -133,6 +135,7 @@ module Kubernetes
         user['authorization'] = "Bearer #{token}"
       end
     end
+    # rubocop:enable AbcSize
 
     def list_context_names
       config['contexts'].map { |e| e['name'] }
@@ -162,4 +165,5 @@ module Kubernetes
       obj[key].dup
     end
   end
+  # rubocop:enable ClassLength
 end
