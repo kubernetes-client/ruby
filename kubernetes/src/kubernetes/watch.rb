@@ -26,14 +26,26 @@ module Kubernetes
     def connect(path, &_block)
       opts = { auth_names: ['BearerToken'] }
       request = @client.build_request('GET', path + '?watch=true', opts)
+      last = ''
       request.on_body do |chunk|
-        parts = chunk.split(/\n/)
-        parts.each do |part|
-          obj = JSON.parse(part)
-          yield obj
+        last, pieces = split_lines(last, chunk)
+        pieces.each do |part|
+          yield JSON.parse(part)
         end
       end
       request.run
+    end
+
+    def split_lines(last, chunk)
+      data = chunk
+      data = last + '' + data
+
+      ix = data.rindex("\n")
+      return [data, []] unless ix
+
+      complete = data[0..ix]
+      last = data[(ix + 1)..data.length]
+      [last, complete.split(/\n/)]
     end
   end
 end
