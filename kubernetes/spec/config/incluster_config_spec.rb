@@ -18,18 +18,24 @@ require 'helpers/file_fixtures'
 
 require 'kubernetes/config/incluster_config'
 
-
+# rubocop:disable BlockLength
 describe Kubernetes::InClusterConfig do
-
   context '#configure' do
     let(:incluster_config) do
       Kubernetes::InClusterConfig.new.tap do |c|
-        c.instance_variable_set(:@env, {
+        c.instance_variable_set(
+          :@env,
           Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME => 'localhost',
-          Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443',
-        })
-        c.instance_variable_set(:@ca_cert, Kubernetes::Testing::file_fixture('certs/ca.crt').to_s)
-        c.instance_variable_set(:@token_file, Kubernetes::Testing::file_fixture('tokens/token').to_s)
+          Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443'
+        )
+        c.instance_variable_set(
+          :@ca_cert,
+          Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+        )
+        c.instance_variable_set(
+          :@token_file,
+          Kubernetes::Testing.file_fixture('tokens/token').to_s
+        )
       end
     end
 
@@ -37,7 +43,7 @@ describe Kubernetes::InClusterConfig do
       expected = Kubernetes::Configuration.new do |c|
         c.scheme = 'https'
         c.host = 'localhost:443'
-        c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+        c.ssl_ca_cert = Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
         c.api_key['authorization'] = 'Bearer token1'
       end
       actual = Kubernetes::Configuration.new
@@ -50,55 +56,67 @@ describe Kubernetes::InClusterConfig do
   context '#validate' do
     let(:incluster_config) do
       Kubernetes::InClusterConfig.new.tap do |c|
-        c.instance_variable_set(:@env, {
+        c.instance_variable_set(
+          :@env,
           Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME => 'localhost',
-          Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443',
-        })
-        c.instance_variable_set(:@ca_cert, Kubernetes::Testing::file_fixture('certs/ca.crt').to_s)
-        c.instance_variable_set(:@token_file, Kubernetes::Testing::file_fixture('tokens/token').to_s)
+          Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443'
+        )
+        c.instance_variable_set(
+          :@ca_cert,
+          Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+        )
+        c.instance_variable_set(
+          :@token_file,
+          Kubernetes::Testing.file_fixture('tokens/token').to_s
+        )
       end
     end
 
     context 'if valid environment' do
-
       it 'shold not raise ConfigError' do
         expect { incluster_config.validate }.not_to raise_error
       end
     end
 
     context 'if SERVICE_HOST_ENV_NAME env variable is not set' do
-
       it 'should raise ConfigError' do
-        incluster_config.env[Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME] = nil
+        env_key = Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME
+        incluster_config.env[env_key] = nil
 
-        expect { incluster_config.validate }.to raise_error(Kubernetes::ConfigError)
+        expect { incluster_config.validate }.to raise_error(
+          Kubernetes::ConfigError
+        )
       end
     end
 
     context 'if SERVICE_PORT_ENV_NAME env variable is not set' do
-
       it 'should raise ConfigError' do
-        incluster_config.env[Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME] = nil
+        env_key = Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME
+        incluster_config.env[env_key] = nil
 
-        expect { incluster_config.validate }.to raise_error(Kubernetes::ConfigError)
+        expect { incluster_config.validate }.to raise_error(
+          Kubernetes::ConfigError
+        )
       end
     end
 
     context 'if ca_cert file is not exist' do
-
       it 'shold raise ConfigError' do
         incluster_config.instance_variable_set(:@ca_cert, 'certs/no_ca.crt')
 
-        expect { incluster_config.validate }.to raise_error(Kubernetes::ConfigError)
+        expect { incluster_config.validate }.to raise_error(
+          Kubernetes::ConfigError
+        )
       end
     end
 
     context 'if token file is not exist' do
-
       it 'shold raise ConfigError' do
         incluster_config.instance_variable_set(:@token_file, 'tokens/no_token')
 
-        expect { incluster_config.validate }.to raise_error(Kubernetes::ConfigError)
+        expect { incluster_config.validate }.to raise_error(
+          Kubernetes::ConfigError
+        )
       end
     end
   end
@@ -107,7 +125,9 @@ describe Kubernetes::InClusterConfig do
     let(:incluster_config) { Kubernetes::InClusterConfig.new }
 
     it 'shold return "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"' do
-      expect(incluster_config.ca_cert).to eq('/var/run/secrets/kubernetes.io/serviceaccount/ca.crt')
+      expect(incluster_config.ca_cert).to eq(
+        '/var/run/secrets/kubernetes.io/serviceaccount/ca.crt'
+      )
     end
   end
 
@@ -115,7 +135,10 @@ describe Kubernetes::InClusterConfig do
     let(:incluster_config) { Kubernetes::InClusterConfig.new }
 
     it 'shold return "/var/run/secrets/kubernetes.io/serviceaccount/token"' do
-      expect(incluster_config.token_file).to eq('/var/run/secrets/kubernetes.io/serviceaccount/token')
+      expect(incluster_config.token_file).to eq(
+        '/var/run/secrets/kubernetes.io/serviceaccount/token'
+      )
     end
   end
 end
+# rubocop:enable BlockLength

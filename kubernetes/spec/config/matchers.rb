@@ -14,11 +14,11 @@
 
 RSpec::Matchers.define :be_same_configuration_as do |expected|
   match do |actual|
-    to_h = Proc.new do |configuration|
+    to_h = proc do |configuration|
       {}.tap do |hash|
         configuration.instance_variables.each do |var|
           value = configuration.instance_variable_get(var)
-          if value.kind_of?(Hash) || value.kind_of?(String)
+          if value.is_a?(Hash) || value.is_a?(String)
             hash[var.to_s.tr('@', '')] = value
           end
         end

@@ -14,9 +14,12 @@
 require 'pathname'
 
 module Kubernetes
+  # The Testing module contains utilities for unit testing
   module Testing
+    # The FileFixtures module contains utilities for loading file resources
     module FileFixtures
-      FIXTURES_DIR_PATH = File.join(File.dirname(__FILE__), '..', 'fixtures', 'files')
+      FIXTURES_DIR_PATH =
+        File.join(File.dirname(__FILE__), '..', 'fixtures', 'files')
 
       # Returns a +Pathname+ to the fixture file named +fixture_name+.
       #
@@ -28,7 +31,7 @@ module Kubernetes
           path
         else
           msg = "the directory '%s' does not contain a file named '%s'"
-          raise ArgumentError, msg % [FIXTURES_DIR_PATH, fixture_name]
+          raise ArgumentError, format(msg, FIXTURES_DIR_PATH, fixture_name)
         end
       end
     end

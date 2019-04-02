@@ -19,27 +19,35 @@ require 'helpers/file_fixtures'
 
 require 'kubernetes/utils'
 
-
+# rubocop:disable BlockLength
 describe Kubernetes do
-
   describe '.load_incluster_config' do
     let(:incluster_config) do
       Kubernetes::InClusterConfig.new.tap do |c|
-        c.instance_variable_set(:@env, {
+        c.instance_variable_set(
+          :@env,
           Kubernetes::InClusterConfig::SERVICE_HOST_ENV_NAME => 'localhost',
-          Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443',
-        })
-        c.instance_variable_set(:@ca_cert, Kubernetes::Testing::file_fixture('certs/ca.crt').to_s)
-        c.instance_variable_set(:@token_file, Kubernetes::Testing::file_fixture('tokens/token').to_s)
+          Kubernetes::InClusterConfig::SERVICE_PORT_ENV_NAME => '443'
+        )
+        c.instance_variable_set(
+          :@ca_cert,
+          Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+        )
+        c.instance_variable_set(
+          :@token_file,
+          Kubernetes::Testing.file_fixture('tokens/token').to_s
+        )
       end
     end
 
     it 'should configure client configuration from in-cluster config' do
-      allow(Kubernetes::InClusterConfig).to receive(:new).and_return(incluster_config)
+      allow(Kubernetes::InClusterConfig)
+        .to receive(:new)
+        .and_return(incluster_config)
       expected = Kubernetes::Configuration.new do |c|
         c.scheme = 'https'
         c.host = 'localhost:443'
-        c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+        c.ssl_ca_cert = Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
         c.api_key['authorization'] = 'Bearer token1'
       end
       actual = Kubernetes::Configuration.new
@@ -50,17 +58,21 @@ describe Kubernetes do
   end
 
   describe '.load_kube_config' do
-    let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
+    file = Kubernetes::Testing.file_fixture('config/config').to_s
+    let(:kube_config) { Kubernetes::KubeConfig.new(file, TEST_KUBE_CONFIG) }
 
     it 'should configure client configuration from kube_config' do
       kubeconfig_path = 'kubeconfig/path'
-      allow(Kubernetes::KubeConfig).to receive(:new).with(kubeconfig_path).and_return(kube_config)
+      allow(Kubernetes::KubeConfig)
+        .to receive(:new)
+        .with(kubeconfig_path)
+        .and_return(kube_config)
       expected = Kubernetes::Configuration.new do |c|
         c.scheme = 'https'
         c.host = 'test-host:443'
-        c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
-        c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
-        c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
+        c.ssl_ca_cert = Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+        c.cert_file = Kubernetes::Testing.file_fixture('certs/client.crt').to_s
+        c.key_file = Kubernetes::Testing.file_fixture('certs/client.key').to_s
       end
       actual = Kubernetes::Configuration.new
 
@@ -83,7 +95,8 @@ describe Kubernetes do
         expect(io).to receive(:write).with(TEST_DATA)
         allow(Tempfile).to receive(:open).and_yield(io)
 
-        expect(Kubernetes.create_temp_file_with_base64content(content)).to eq(expected_path)
+        path = Kubernetes.create_temp_file_with_base64content(content)
+        expect(path).to eq(expected_path)
       end
     end
 
@@ -91,13 +104,15 @@ describe Kubernetes do
       it 'should return cached value' do
         expected_path = 'tempfile-path'
         content = TEST_DATA_BASE64
-        Kubernetes::cache_temp_file(content, expected_path)
+        Kubernetes.cache_temp_file(content, expected_path)
         io = double('io')
         expect(io).not_to receive(:path)
         expect(io).not_to receive(:write).with(TEST_DATA)
 
-        expect(Kubernetes.create_temp_file_with_base64content(content)).to eq(expected_path)
+        path = Kubernetes.create_temp_file_with_base64content(content)
+        expect(path).to eq(expected_path)
       end
     end
   end
 end
+# rubocop:enable BlockLength

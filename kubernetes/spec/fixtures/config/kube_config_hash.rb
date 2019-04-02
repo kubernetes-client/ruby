@@ -15,134 +15,136 @@
 require 'base64'
 require 'helpers/file_fixtures'
 
-
 TEST_TOKEN_FILE = Kubernetes::Testing.file_fixture('tokens/token')
 
-TEST_DATA = "test-data"
+TEST_DATA = 'test-data'.freeze
 TEST_DATA_BASE64 = Base64.strict_encode64(TEST_DATA)
 
-TEST_HOST = "http://test-host"
-TEST_USERNAME = "me"
-TEST_PASSWORD = "pass"
+TEST_HOST = 'http://test-host'.freeze
+TEST_USERNAME = 'me'.freeze
+TEST_PASSWORD = 'pass'.freeze
 # token for me:pass
-TEST_BASIC_TOKEN = "Basic bWU6cGFzcw=="
+TEST_BASIC_TOKEN = 'Basic bWU6cGFzcw=='.freeze
 
-TEST_SSL_HOST = "https://test-host"
-TEST_CERTIFICATE_AUTH = "cert-auth"
+TEST_SSL_HOST = 'https://test-host'.freeze
+TEST_CERTIFICATE_AUTH = 'cert-auth'.freeze
 TEST_CERTIFICATE_AUTH_BASE64 = Base64.strict_encode64(TEST_CERTIFICATE_AUTH)
-TEST_CLIENT_KEY = "client-key"
+TEST_CLIENT_KEY = 'client-key'.freeze
 TEST_CLIENT_KEY_BASE64 = Base64.strict_encode64(TEST_CLIENT_KEY)
-TEST_CLIENT_CERT = "client-cert"
+TEST_CLIENT_CERT = 'client-cert'.freeze
 TEST_CLIENT_CERT_BASE64 = Base64.strict_encode64(TEST_CLIENT_CERT)
 
 TEST_CONTEXT_DEFAULT = {
   'name' => 'default',
   'context' => {
     'cluster' => 'default',
-    'user' => 'default',
+    'user' => 'default'
   }
-}
+}.freeze
 TEST_CONTEXT_NO_USER = {
   'name' => 'no_user',
   'context' => {
-    'cluster' => 'default',
+    'cluster' => 'default'
   }
-}
+}.freeze
 TEST_CONTEXT_SSL = {
   'name' => 'context_ssl',
   'context' => {
     'cluster' => 'ssl-file',
-    'user' => 'user_cert_file',
+    'user' => 'user_cert_file'
   }
-}
+}.freeze
 TEST_CONTEXT_INSECURE = {
   'name' => 'context_insecure',
   'context' => {
     'cluster' => 'ssl-data-insecure',
-    'user' => 'user_cert_file',
+    'user' => 'user_cert_file'
   }
-}
+}.freeze
 TEST_CONTEXT_TOKEN = {
   'name' => 'context_token',
   'context' => {
     'cluster' => 'ssl-file',
-    'user' => 'simple_token',
+    'user' => 'simple_token'
   }
-}
+}.freeze
 
 TEST_CLUSTER_DEFAULT = {
   'name' => 'default',
   'cluster' => {
-    'server' => TEST_HOST,
-  },
-}
+    'server' => TEST_HOST
+  }
+}.freeze
 TEST_CLUSTER_SSL_FILE = {
   'name' => 'ssl-file',
   'cluster' => {
     'server' => TEST_SSL_HOST,
-    'certificate-authority' => Kubernetes::Testing.file_fixture('certs/ca.crt').to_s,
-  },
-}
+    'certificate-authority' =>
+      Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+  }
+}.freeze
 TEST_CLUSTER_SSL_DATA = {
   'name' => 'ssl-data',
   'cluster' => {
     'server' => TEST_SSL_HOST,
-    'certificate-authority-data' => TEST_CERTIFICATE_AUTH_BASE64,
-  },
-}
+    'certificate-authority-data' => TEST_CERTIFICATE_AUTH_BASE64
+  }
+}.freeze
 TEST_CLUSTER_INSECURE = {
   'name' => 'ssl-data-insecure',
   'cluster' => {
     'server' => TEST_SSL_HOST,
-    'certificate-authority' => Kubernetes::Testing.file_fixture('certs/ca.crt').to_s,
-    'insecure-skip-tls-verify' => true,
-  },
-}
+    'certificate-authority' =>
+      Kubernetes::Testing.file_fixture('certs/ca.crt').to_s,
+    'insecure-skip-tls-verify' => true
+  }
+}.freeze
 
 TEST_USER_DEFAULT = {
   'name' => 'default',
   'user' => {
-    'token' => TEST_DATA_BASE64,
+    'token' => TEST_DATA_BASE64
   }
-}
+}.freeze
 TEST_USER_SIMPLE_TOKEN = {
   'name' => 'simple_token',
   'user' => {
     'token' => TEST_DATA_BASE64,
-    'username' => TEST_USERNAME,  # should be ignored
-    'password' => TEST_PASSWORD,  # should be ignored
-  },
-}
+    'username' => TEST_USERNAME, # should be ignored
+    'password' => TEST_PASSWORD # should be ignored
+  }
+}.freeze
 TEST_USER_SIMPLE_TOKEN_FILE = {
   'name' => 'simple_token_file',
   'user' => {
     'tokenFile' => TEST_TOKEN_FILE,
-    'username' => TEST_USERNAME,  # should be ignored
-    'password' => TEST_PASSWORD,  # should be ignored
-  },
-}
+    'username' => TEST_USERNAME, # should be ignored
+    'password' => TEST_PASSWORD # should be ignored
+  }
+}.freeze
 TEST_USER_USER_PASS = {
   'name' => 'user_pass',
   'user' => {
-    'username' => TEST_USERNAME,  # should be ignored
-    'password' => TEST_PASSWORD,  # should be ignored
-  },
-}
+    'username' => TEST_USERNAME, # should be ignored
+    'password' => TEST_PASSWORD # should be ignored
+  }
+}.freeze
 TEST_USER_CERT_DATA = {
   'name' => 'user_cert_data',
   'user' => {
     'token' => TEST_DATA_BASE64,
     'client-certificate-data' => TEST_CLIENT_CERT_BASE64,
-    'client-key-data' => TEST_CLIENT_KEY_BASE64,
-  },
-}
+    'client-key-data' => TEST_CLIENT_KEY_BASE64
+  }
+}.freeze
 TEST_USER_CERT_FILE = {
   'name' => 'user_cert_file',
   'user' => {
-    'client-certificate' => Kubernetes::Testing.file_fixture('certs/client.crt').to_s,
-    'client-key' => Kubernetes::Testing.file_fixture('certs/client.key').to_s,
-  },
-}
+    'client-certificate' =>
+      Kubernetes::Testing.file_fixture('certs/client.crt').to_s,
+    'client-key' => Kubernetes::Testing.file_fixture('certs/client.key').to_s
+  }
+}.freeze
 
 TEST_KUBE_CONFIG = {
   'current-context' => 'no_user',
@@ -151,13 +153,13 @@ TEST_KUBE_CONFIG = {
     TEST_CONTEXT_NO_USER,
     TEST_CONTEXT_SSL,
     TEST_CONTEXT_TOKEN,
-    TEST_CONTEXT_INSECURE,
+    TEST_CONTEXT_INSECURE
   ],
   'clusters' => [
     TEST_CLUSTER_DEFAULT,
     TEST_CLUSTER_SSL_FILE,
     TEST_CLUSTER_SSL_DATA,
-    TEST_CLUSTER_INSECURE,
+    TEST_CLUSTER_INSECURE
   ],
   'users' => [
     TEST_USER_DEFAULT,
@@ -165,6 +167,6 @@ TEST_KUBE_CONFIG = {
     TEST_USER_SIMPLE_TOKEN_FILE,
     TEST_USER_USER_PASS,
     TEST_USER_CERT_DATA,
-    TEST_USER_CERT_FILE,
-  ],
-}
+    TEST_USER_CERT_FILE
+  ]
+}.freeze
