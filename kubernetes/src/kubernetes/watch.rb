@@ -16,26 +16,24 @@ require 'json'
 
 # The Kubernetes module encapsulates the Kubernetes client for Ruby
 module Kubernetes
-    class Watch
-        def initialize(client)
-            @client = client
-        end
-        
-        def connect(path, &block)
-            opts = {
-                :auth_names => ['BearerToken']
-            }
-            request = @client.build_request('GET', path + '?watch=true', opts)
-            request.on_body do |chunk|
-                parts = chunk.split(/\n/)
-                parts.each do |part|
-                    obj = JSON.parse(part)
-                    yield obj
-                end
-            end
-            response = request.run
-
-            pp response
-        end
+  # The Watch class provides the ability to watch a specific resource for
+  # updates.
+  class Watch
+    def initialize(client)
+      @client = client
     end
+
+    def connect(path, &_block)
+      opts = { auth_names: ['BearerToken'] }
+      request = @client.build_request('GET', path + '?watch=true', opts)
+      request.on_body do |chunk|
+        parts = chunk.split(/\n/)
+        parts.each do |part|
+          obj = JSON.parse(part)
+          yield obj
+        end
+      end
+      request.run
+    end
+  end
 end
