@@ -76,15 +76,13 @@ module Kubernetes
   def create_temp_file_with_base64content(content)
     @temp_files[content] ||= Tempfile.open('kube') do |temp|
       temp.write(Base64.strict_decode64(content))
-      temp.path
+      temp
     end
-  end
 
-  def cache_temp_file(content, path)
-    @temp_files[content] = path
+    @temp_files[content].path
   end
 
   module_function :new_client_from_config, :load_incluster_config,
                   :load_kube_config, :create_temp_file_and_set,
-                  :create_temp_file_with_base64content, :cache_temp_file
+                  :create_temp_file_with_base64content
 end
