@@ -21,9 +21,10 @@ require 'spec_helper'
 require 'kubernetes/config/kube_config'
 require 'kubernetes/loader'
 
-
+# rubocop:disable BlockLength
 describe Kubernetes::KubeConfig do
-  let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/config').to_s, TEST_KUBE_CONFIG) }
+  file = Kubernetes::Testing.file_fixture('config/config').to_s
+  let(:kube_config) { Kubernetes::KubeConfig.new(file, TEST_KUBE_CONFIG) }
 
   context '#configure' do
     context 'if non user context is given' do
@@ -44,9 +45,12 @@ describe Kubernetes::KubeConfig do
         expected = Kubernetes::Configuration.new do |c|
           c.scheme = 'https'
           c.host = 'test-host:443'
-          c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
-          c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
-          c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
+          c.ssl_ca_cert =
+            Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+          c.cert_file =
+            Kubernetes::Testing.file_fixture('certs/client.crt').to_s
+          c.key_file =
+            Kubernetes::Testing.file_fixture('certs/client.key').to_s
           c.verify_ssl = true
         end
         actual = Kubernetes::Configuration.new
@@ -61,9 +65,12 @@ describe Kubernetes::KubeConfig do
         expected = Kubernetes::Configuration.new do |c|
           c.scheme = 'https'
           c.host = 'test-host:443'
-          c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
-          c.cert_file = Kubernetes::Testing::file_fixture('certs/client.crt').to_s
-          c.key_file = Kubernetes::Testing::file_fixture('certs/client.key').to_s
+          c.ssl_ca_cert =
+            Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+          c.cert_file =
+            Kubernetes::Testing.file_fixture('certs/client.crt').to_s
+          c.key_file =
+            Kubernetes::Testing.file_fixture('certs/client.key').to_s
           c.verify_ssl = false
           c.verify_ssl_host = false
         end
@@ -81,7 +88,7 @@ describe Kubernetes::KubeConfig do
         expected = Kubernetes::Configuration.new do |c|
           c.scheme = 'https'
           c.host = 'test-host:443'
-          c.ssl_ca_cert = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
+          c.ssl_ca_cert = Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
           c.api_key['authorization'] = "Bearer #{TEST_DATA_BASE64}"
         end
         actual = Kubernetes::Configuration.new
@@ -94,15 +101,17 @@ describe Kubernetes::KubeConfig do
 
   context '#config' do
     context 'if config hash is not given when it is initialized' do
-      let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/empty').to_s) }
+      file = Kubernetes::Testing.file_fixture('config/empty').to_s
+      let(:kube_config) { Kubernetes::KubeConfig.new(file) }
       it 'should load config' do
         expect(kube_config.config).to eq({})
       end
     end
 
     context 'if config hash is given when it is initialized' do
-      let(:given_hash) { {given: 'hash'} }
-      let(:kube_config) { Kubernetes::KubeConfig.new(Kubernetes::Testing::file_fixture('config/empty').to_s, given_hash) }
+      let(:given_hash) { { given: 'hash' } }
+      file = Kubernetes::Testing.file_fixture('config/empty').to_s
+      let(:kube_config) { Kubernetes::KubeConfig.new(file, given_hash) }
 
       it 'should not load config' do
         expect(kube_config.config).to eq(given_hash)
@@ -124,7 +133,7 @@ describe Kubernetes::KubeConfig do
         cluster = kube_config.find_cluster('ssl-data')
         ca_file = cluster['certificate-authority']
         expect(ca_file).not_to be_nil
-        open(ca_file) do |io|
+        File.open(ca_file) do |io|
           expect(io.read).to eq(TEST_CERTIFICATE_AUTH)
         end
       end
@@ -161,7 +170,7 @@ describe Kubernetes::KubeConfig do
         user = kube_config.find_user('user_cert_data')
         cert_file = user['client-certificate']
         expect(cert_file).not_to be_nil
-        open(cert_file) do |io|
+        File.open(cert_file) do |io|
           expect(io.read).to eq(TEST_CLIENT_CERT)
         end
       end
@@ -172,7 +181,7 @@ describe Kubernetes::KubeConfig do
         user = kube_config.find_user('user_cert_data')
         key_file = user['client-key']
         expect(key_file).not_to be_nil
-        open(key_file) do |io|
+        File.open(key_file) do |io|
           expect(io.read).to eq(TEST_CLIENT_KEY)
         end
       end
@@ -182,7 +191,7 @@ describe Kubernetes::KubeConfig do
       it 'should read token from file if given' do
         user = kube_config.find_user('simple_token_file')
 
-        expect(user['authorization']).to eq("Bearer token1")
+        expect(user['authorization']).to eq('Bearer token1')
       end
     end
 
@@ -197,7 +206,8 @@ describe Kubernetes::KubeConfig do
 
   context '#list_context_names' do
     it 'should list context names' do
-      expect(kube_config.list_context_names.sort).to eq(["default", "no_user", "context_ssl", "context_insecure", "context_token"].sort)
+      arr = %w[default no_user context_ssl context_insecure context_token].sort
+      expect(kube_config.list_context_names.sort).to eq(arr)
     end
   end
 
@@ -205,10 +215,10 @@ describe Kubernetes::KubeConfig do
     context 'if valid name is given' do
       it 'should return context' do
         expect(kube_config.find_context('default')['cluster']['server']).to eq(
-            TEST_CLUSTER_DEFAULT['cluster']['server'],
+          TEST_CLUSTER_DEFAULT['cluster']['server']
         )
         expect(kube_config.find_context('default')['user']['username']).to eq(
-          TEST_USER_DEFAULT['user']['username'],
+          TEST_USER_DEFAULT['user']['username']
         )
       end
     end
@@ -217,11 +227,10 @@ describe Kubernetes::KubeConfig do
   context '#current_context' do
     it 'should return current context' do
       expect(kube_config.current_context['cluster']['server']).to eq(
-        TEST_CLUSTER_DEFAULT['cluster']['server'],
+        TEST_CLUSTER_DEFAULT['cluster']['server']
       )
     end
   end
-
 
   context 'load from defaults' do
     before(:each) do
@@ -230,52 +239,58 @@ describe Kubernetes::KubeConfig do
       ENV['KUBECONFIG'] = nil
       ENV['KUBERNETES_SERVICE_HOST'] = nil
       ENV['KUBERNETES_SERVICE_PORT'] = nil
-        
+
       # Suppress warnings
       warn_level = $VERBOSE
-        $VERBOSE = nil
-        Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME = '/non/existent/file/token'
-        Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME = '/non/existent/file/ca.crt'
-        $VERBOSE = warn_level
-      end
-
-      it 'should load from KUBECONFIG' do
-        ENV['KUBECONFIG'] = Kubernetes::Testing::file_fixture('config/config_2').to_s
-        ENV['HOME'] = Kubernetes::Testing::file_fixture('config').to_s
-        config = Kubernetes::Configuration::default_config
-
-        expect(config.host).to eq('other:8080')
-      end
-
-      it 'should load from HOME' do
-        ENV['HOME'] = Kubernetes::Testing::file_fixture('config').to_s
-        config = Kubernetes::Configuration::default_config
-
-        expect(config.host).to eq('firstconfig:8080')
-      end
-
-      it 'should load from cluster' do
-        ENV['KUBERNETES_SERVICE_HOST'] = 'kubernetes'
-        ENV['KUBERNETES_SERVICE_PORT'] = '8888'
-
-        # Suppress warnings
-        warn_level = $VERBOSE
-        $VERBOSE = nil
-
-        # Override constants for token and cert locations
-        Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME = Kubernetes::Testing::file_fixture('config/config').to_s
-        Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME = Kubernetes::Testing::file_fixture('certs/ca.crt').to_s
-        $VERBOSE = warn_level
-
-        config = Kubernetes::Configuration::default_config
-
-        expect(config.host).to eq('kubernetes:8888')
-      end
-
-      it 'should default to localhost' do
-        config = Kubernetes::Configuration::default_config
-
-        expect(config.host).to eq('localhost:8080')
-      end
+      $VERBOSE = nil
+      Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME =
+        '/non/existent/file/token'.freeze
+      Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME =
+        '/non/existent/file/ca.crt'.freeze
+      $VERBOSE = warn_level
     end
+
+    it 'should load from KUBECONFIG' do
+      ENV['KUBECONFIG'] =
+        Kubernetes::Testing.file_fixture('config/config_2').to_s
+      ENV['HOME'] = Kubernetes::Testing.file_fixture('config').to_s
+      config = Kubernetes::Configuration.default_config
+
+      expect(config.host).to eq('other:8080')
+    end
+
+    it 'should load from HOME' do
+      ENV['HOME'] = Kubernetes::Testing.file_fixture('config').to_s
+      config = Kubernetes::Configuration.default_config
+
+      expect(config.host).to eq('firstconfig:8080')
+    end
+
+    it 'should load from cluster' do
+      ENV['KUBERNETES_SERVICE_HOST'] = 'kubernetes'
+      ENV['KUBERNETES_SERVICE_PORT'] = '8888'
+
+      # Suppress warnings
+      warn_level = $VERBOSE
+      $VERBOSE = nil
+
+      # Override constants for token and cert locations
+      Kubernetes::InClusterConfig::SERVICE_TOKEN_FILENAME =
+        Kubernetes::Testing.file_fixture('config/config').to_s
+      Kubernetes::InClusterConfig::SERVICE_CA_CERT_FILENAME =
+        Kubernetes::Testing.file_fixture('certs/ca.crt').to_s
+      $VERBOSE = warn_level
+
+      config = Kubernetes::Configuration.default_config
+
+      expect(config.host).to eq('kubernetes:8888')
+    end
+
+    it 'should default to localhost' do
+      config = Kubernetes::Configuration.default_config
+
+      expect(config.host).to eq('localhost:8080')
+    end
+  end
 end
+# rubocop:enable BlockLength

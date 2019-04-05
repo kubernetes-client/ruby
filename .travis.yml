@@ -5,4 +5,5 @@ rvm:
 script:
 - cd kubernetes
 - bundle exec rubocop ./src
+- bundle exec rubocop ./spec
 - bundle exec rspec
