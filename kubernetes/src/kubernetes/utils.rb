@@ -82,7 +82,11 @@ module Kubernetes
     @temp_files[content].path
   end
 
+  def clear_temp_files
+    @temp_files = {}
+  end
+
   module_function :new_client_from_config, :load_incluster_config,
                   :load_kube_config, :create_temp_file_and_set,
-                  :create_temp_file_with_base64content
+                  :create_temp_file_with_base64content, :clear_temp_files
 end
