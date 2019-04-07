@@ -86,6 +86,10 @@ describe Kubernetes do
   end
 
   context '#create_temp_file_with_base64content' do
+    before do
+      Kubernetes.clear_temp_files
+    end
+
     context 'when it is called at first time' do
       it 'should return temp file path' do
         expected_path = 'tempfile-path'
@@ -102,12 +106,8 @@ describe Kubernetes do
 
     context 'when it is already called' do
       it 'should return cached value' do
-        expected_path = 'tempfile-path'
         content = TEST_DATA_BASE64
-        Kubernetes.cache_temp_file(content, expected_path)
-        io = double('io')
-        expect(io).not_to receive(:path)
-        expect(io).not_to receive(:write).with(TEST_DATA)
+        expected_path = Kubernetes.create_temp_file_with_base64content(content)
 
         path = Kubernetes.create_temp_file_with_base64content(content)
         expect(path).to eq(expected_path)

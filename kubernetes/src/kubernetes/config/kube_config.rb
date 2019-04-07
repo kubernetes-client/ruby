@@ -20,6 +20,7 @@ require 'uri'
 require 'kubernetes/api_client'
 require 'kubernetes/configuration'
 require 'kubernetes/config/error'
+require 'kubernetes/utils'
 
 module Kubernetes
   # The KubeConfig class represents configuration based on a YAML
