@@ -25,6 +25,7 @@ TEST_USERNAME = 'me'.freeze
 TEST_PASSWORD = 'pass'.freeze
 # token for me:pass
 TEST_BASIC_TOKEN = 'Basic bWU6cGFzcw=='.freeze
+TEST_AZURE_TOKEN = 'Bearer some-token'.freeze
 
 TEST_SSL_HOST = 'https://test-host'.freeze
 TEST_CERTIFICATE_AUTH = 'cert-auth'.freeze
@@ -146,6 +147,18 @@ TEST_USER_CERT_FILE = {
   }
 }.freeze
 
+TEST_USER_AZURE = {
+  'name' => 'user_azure',
+  'user' => {
+    'auth-provider' => {
+      'name' => 'azure',
+      'config' => {
+        'access-token' => 'some-token'
+      }
+    }
+  }
+}.freeze
+
 TEST_KUBE_CONFIG = {
   'current-context' => 'no_user',
   'contexts' => [
@@ -167,6 +180,7 @@ TEST_KUBE_CONFIG = {
     TEST_USER_SIMPLE_TOKEN_FILE,
     TEST_USER_USER_PASS,
     TEST_USER_CERT_DATA,
-    TEST_USER_CERT_FILE
+    TEST_USER_CERT_FILE,
+    TEST_USER_AZURE
   ]
 }.freeze
