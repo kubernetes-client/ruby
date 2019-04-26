@@ -202,6 +202,14 @@ describe Kubernetes::KubeConfig do
         expect(user['authorization']).to eq(TEST_BASIC_TOKEN)
       end
     end
+
+    context 'if azure user' do
+      it 'should return the access token' do
+        user = kube_config.find_user('user_azure')
+
+        expect(user['authorization']).to eq(TEST_AZURE_TOKEN)
+      end
+    end
   end
 
   context '#list_context_names' do
