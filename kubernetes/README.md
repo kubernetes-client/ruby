@@ -23,21 +23,21 @@ gem build kubernetes.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./kubernetes-1.0.0.pre.alpha2.gem
+gem install ./kubernetes-io-1.0.0.pre.alpha2.gem
 ```
-(for development, run `gem install --dev ./kubernetes-1.0.0.pre.alpha2.gem` to install the development dependencies)
+(for development, run `gem install --dev ./kubernetes-io-1.0.0.pre.alpha2.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'kubernetes', '~> 1.0.0-alpha2'
+    gem 'kubernetes-io', '~> 1.0.0-alpha2'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/kubernetes-client/ruby, then add the following in the Gemfile:
 
-    gem 'kubernetes', :git => 'https://github.com/kubernetes-client/ruby.git'
+    gem 'kubernetes-io', :git => 'https://github.com/kubernetes-client/ruby.git'
 
 ### Include the Ruby code directly
 

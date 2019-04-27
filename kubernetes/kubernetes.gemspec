@@ -16,12 +16,12 @@ $:.push File.expand_path("../lib", __FILE__)
 require "kubernetes/version"
 
 Gem::Specification.new do |s|
-  s.name        = "kubernetes"
+  s.name        = "kubernetes-io"
   s.version     = Kubernetes::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Kubernetes authors"]
   s.email       = ["kubernetes-sig-api-machinery@googlegroups.com"]
-  s.homepage    = "https://kubernetes.io"
+  s.homepage    = "https://github.com/kubernetes-client/ruby"
   s.summary     = "Kubernetes ruby client."
   s.description = "Kubernetes official ruby client to talk to kubernetes clusters."
   s.license     = "Apache-2.0"

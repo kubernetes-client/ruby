@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kubernetes (1.0.0.pre.alpha2)
+    kubernetes-io (1.0.0.pre.alpha2)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
@@ -78,7 +78,7 @@ DEPENDENCIES
   autotest-fsevent (~> 0.2, >= 0.2.12)
   autotest-growl (~> 0.2, >= 0.2.16)
   autotest-rails-pure (~> 4.1, >= 4.1.2)
-  kubernetes!
+  kubernetes-io!
   rake (~> 12.0.0)
   rspec (~> 3.6, >= 3.6.0)
   rubocop (~> 0.65.0)
