@@ -48,6 +48,13 @@ TEST_CONTEXT_NO_USER = {
     'cluster' => 'default'
   }
 }.freeze
+TEST_CONTEXT_EMPTY_USER = {
+  'name' => 'empty_user',
+  'context' => {
+    'cluster' => 'default',
+    'user' => ''
+  }
+}.freeze
 TEST_CONTEXT_SSL = {
   'name' => 'context_ssl',
   'context' => {
@@ -164,6 +171,7 @@ TEST_KUBE_CONFIG = {
   'contexts' => [
     TEST_CONTEXT_DEFAULT,
     TEST_CONTEXT_NO_USER,
+    TEST_CONTEXT_EMPTY_USER,
     TEST_CONTEXT_SSL,
     TEST_CONTEXT_TOKEN,
     TEST_CONTEXT_INSECURE
