@@ -20,6 +20,6 @@ client = Kubernetes::ApiClient.new(config)
 
 watch = Kubernetes::Watch.new(client)
 
-watch.connect('/api/v1/namespaces') do |obj|
+watch.connect('/api/v1/namespaces', nil) do |obj|
     pp obj
 end

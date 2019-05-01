@@ -40,7 +40,7 @@ module Kubernetes
     attr_accessor :path
     attr_writer :config
 
-    def initialize(path, config_hash = nil)
+    def initialize(path = nil, config_hash = nil)
       @path = path
       @config = config_hash
     end
