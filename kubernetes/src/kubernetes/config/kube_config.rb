@@ -146,7 +146,9 @@ module Kubernetes
         if context['cluster']
           context['cluster'] = find_cluster(context['cluster'])
         end
-        context['user'] = find_user(context['user']) if context['user']
+        if context['user'] && !context['user'].empty?
+          context['user'] = find_user(context['user'])
+        end
       end
     end
 
@@ -162,7 +164,7 @@ module Kubernetes
       obj = list.find { |item| item['name'] == name }
       raise ConfigError, "#{key}: #{name} not found" unless obj
 
-      obj[key].dup
+      obj[key].dup if obj[key]
     end
   end
   # rubocop:enable ClassLength

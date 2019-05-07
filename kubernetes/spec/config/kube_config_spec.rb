@@ -40,6 +40,19 @@ describe Kubernetes::KubeConfig do
       end
     end
 
+    context 'if empty user context is given' do
+      it 'should configure non user configuration' do
+        expected = Kubernetes::Configuration.new do |c|
+          c.scheme = 'http'
+          c.host = 'test-host:80'
+        end
+        actual = Kubernetes::Configuration.new
+
+        kube_config.configure(actual, 'empty_user')
+        expect(actual).to be_same_configuration_as(expected)
+      end
+    end
+
     context 'if ssl context is given' do
       it 'should configure ssl configuration' do
         expected = Kubernetes::Configuration.new do |c|
@@ -214,7 +227,9 @@ describe Kubernetes::KubeConfig do
 
   context '#list_context_names' do
     it 'should list context names' do
-      arr = %w[default no_user context_ssl context_insecure context_token].sort
+      # rubocop:disable LineLength
+      arr = %w[default no_user empty_user context_ssl context_insecure context_token].sort
+      # rubocop:enable LineLength
       expect(kube_config.list_context_names.sort).to eq(arr)
     end
   end
