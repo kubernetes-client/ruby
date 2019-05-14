@@ -25,16 +25,18 @@ describe 'WatchClient' do
     config.scheme = 'http'
     config.host = 'k8s.io:8080'
     client = Kubernetes::ApiClient.new(config)
+    url = 'http://k8s.io:8080/some/path?watch=true&resourceVersion=foo'
 
-    WebMock.stub_request(:get, "http://k8s.io:8080/some/path?watch=true&resourceVersion=foo").
-      with(
-        headers: {
-          'Authorization'=>'',
-          'Content-Type'=>'application/json',
-          'Expect'=>'',
-          'User-Agent'=>'Swagger-Codegen/1.0.0-alpha2/ruby'
-        }).
-        to_return(status: 200, body: "{}\n", headers: {})
+    WebMock.stub_request(:get, url)
+           .with(
+             headers: {
+               'Authorization' => '',
+               'Content-Type' => 'application/json',
+               'Expect' => '',
+               'User-Agent' => 'Swagger-Codegen/1.0.0-alpha2/ruby'
+             }
+           )
+           .to_return(status: 200, body: "{}\n", headers: {})
 
     watch = Kubernetes::Watch.new(client)
     result = []
@@ -43,22 +45,23 @@ describe 'WatchClient' do
     end
   end
 
-
   it 'should connect correctly' do
     config = Kubernetes::Configuration.new
     config.scheme = 'http'
     config.host = 'k8s.io:8080'
     client = Kubernetes::ApiClient.new(config)
+    body = "{ \"foo\": \"bar\" }\n{ \"baz\": \"blah\" }\n{}\n"
 
-    WebMock.stub_request(:get, "http://k8s.io:8080/some/path?watch=true").
-      with(
-        headers: {
-          'Authorization'=>'',
-          'Content-Type'=>'application/json',
-          'Expect'=>'',
-          'User-Agent'=>'Swagger-Codegen/1.0.0-alpha2/ruby'
-        }).
-        to_return(status: 200, body: "{ \"foo\": \"bar\" }\n{ \"baz\": \"blah\" }\n{}\n", headers: {})
+    WebMock.stub_request(:get, 'http://k8s.io:8080/some/path?watch=true')
+           .with(
+             headers: {
+               'Authorization' => '',
+               'Content-Type' => 'application/json',
+               'Expect' => '',
+               'User-Agent' => 'Swagger-Codegen/1.0.0-alpha2/ruby'
+             }
+           )
+           .to_return(status: 200, body: body, headers: {})
 
     watch = Kubernetes::Watch.new(client)
     result = []
