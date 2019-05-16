@@ -29,7 +29,7 @@ module Kubernetes
       path + query
     end
 
-    def connect(path, resource_version, &_block)
+    def connect(path, resource_version = nil, &_block)
       opts = { auth_names: ['BearerToken'] }
       url = make_url(path, resource_version)
       request = @client.build_request('GET', url, opts)
