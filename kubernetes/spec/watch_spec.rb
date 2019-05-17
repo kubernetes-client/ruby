@@ -20,6 +20,60 @@ describe 'WatchClient' do
     Kubernetes::Watch.new(nil)
   end
 
+  it 'should connect correctly with resource version' do
+    config = Kubernetes::Configuration.new
+    config.scheme = 'http'
+    config.host = 'k8s.io:8080'
+    client = Kubernetes::ApiClient.new(config)
+    url = 'http://k8s.io:8080/some/path?watch=true&resourceVersion=foo'
+
+    WebMock.stub_request(:get, url)
+           .with(
+             headers: {
+               'Authorization' => '',
+               'Content-Type' => 'application/json',
+               'Expect' => '',
+               'User-Agent' => 'Swagger-Codegen/1.0.0-alpha2/ruby'
+             }
+           )
+           .to_return(status: 200, body: "{}\n", headers: {})
+
+    watch = Kubernetes::Watch.new(client)
+    result = []
+    watch.connect('/some/path', 'foo') do |obj|
+      result << obj
+    end
+  end
+
+  it 'should connect correctly' do
+    config = Kubernetes::Configuration.new
+    config.scheme = 'http'
+    config.host = 'k8s.io:8080'
+    client = Kubernetes::ApiClient.new(config)
+    body = "{ \"foo\": \"bar\" }\n{ \"baz\": \"blah\" }\n{}\n"
+
+    WebMock.stub_request(:get, 'http://k8s.io:8080/some/path?watch=true')
+           .with(
+             headers: {
+               'Authorization' => '',
+               'Content-Type' => 'application/json',
+               'Expect' => '',
+               'User-Agent' => 'Swagger-Codegen/1.0.0-alpha2/ruby'
+             }
+           )
+           .to_return(status: 200, body: body, headers: {})
+
+    watch = Kubernetes::Watch.new(client)
+    result = []
+    watch.connect('/some/path', nil) do |obj|
+      result << obj
+    end
+
+    expect(result.length).to eq(3)
+    expect(result[0]['foo']).to eq('bar')
+    expect(result[1]['baz']).to eq('blah')
+  end
+
   it 'should parse chunks correctly' do
     client = Kubernetes::Watch.new(nil)
     last = ''

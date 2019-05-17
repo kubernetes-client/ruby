@@ -18,8 +18,6 @@ require 'fixtures/config/kube_config_hash'
 require 'helpers/file_fixtures'
 
 require 'kubernetes/utils'
-
-# rubocop:disable BlockLength
 describe Kubernetes do
   describe '.load_incluster_config' do
     let(:incluster_config) do
@@ -115,4 +113,3 @@ describe Kubernetes do
     end
   end
 end
-# rubocop:enable BlockLength

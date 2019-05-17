@@ -23,9 +23,16 @@ module Kubernetes
       @client = client
     end
 
-    def connect(path, &_block)
+    def make_url(path, resource_version)
+      query = '?watch=true'
+      query += "&resourceVersion=#{resource_version}" if resource_version
+      path + query
+    end
+
+    def connect(path, resource_version = nil, &_block)
       opts = { auth_names: ['BearerToken'] }
-      request = @client.build_request('GET', path + '?watch=true', opts)
+      url = make_url(path, resource_version)
+      request = @client.build_request('GET', url, opts)
       last = ''
       request.on_body do |chunk|
         last, pieces = split_lines(last, chunk)
