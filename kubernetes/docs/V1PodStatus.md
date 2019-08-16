@@ -1,6 +1,7 @@
 # Kubernetes::V1PodStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **conditions** | [**Array&lt;V1PodCondition&gt;**](V1PodCondition.md) | Current service state of pod. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions | [optional] 
@@ -14,5 +15,23 @@ Name | Type | Description | Notes
 **qos_class** | **String** | The Quality of Service (QOS) classification assigned to the pod based on resource requirements See PodQOSClass type for available QOS classes More info: https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md | [optional] 
 **reason** | **String** | A brief CamelCase message indicating details about why the pod is in this state. e.g. &#39;Evicted&#39; | [optional] 
 **start_time** | **DateTime** | RFC 3339 date and time at which the object was acknowledged by the Kubelet. This is before the Kubelet pulled the container image(s) for the pod. | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1PodStatus.new(conditions: null,
+                                 container_statuses: null,
+                                 host_ip: null,
+                                 init_container_statuses: null,
+                                 message: null,
+                                 nominated_node_name: null,
+                                 phase: null,
+                                 pod_ip: null,
+                                 qos_class: null,
+                                 reason: null,
+                                 start_time: null)
+```
 
 

@@ -1,6 +1,7 @@
 # Kubernetes::V1beta1PodDisruptionBudgetStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **current_healthy** | **Integer** | current number of healthy pods | 
@@ -9,5 +10,18 @@ Name | Type | Description | Notes
 **disruptions_allowed** | **Integer** | Number of pod disruptions that are currently allowed. | 
 **expected_pods** | **Integer** | total number of pods counted by this disruption budget | 
 **observed_generation** | **Integer** | Most recent generation observed when updating this PDB status. PodDisruptionsAllowed and other status informatio is valid only if observedGeneration equals to PDB&#39;s object generation. | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1beta1PodDisruptionBudgetStatus.new(current_healthy: null,
+                                 desired_healthy: null,
+                                 disrupted_pods: null,
+                                 disruptions_allowed: null,
+                                 expected_pods: null,
+                                 observed_generation: null)
+```
 
 

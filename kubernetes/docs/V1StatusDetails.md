@@ -1,6 +1,7 @@
 # Kubernetes::V1StatusDetails
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **causes** | [**Array&lt;V1StatusCause&gt;**](V1StatusCause.md) | The Causes array includes more details associated with the StatusReason failure. Not all StatusReasons may provide detailed causes. | [optional] 
@@ -9,5 +10,18 @@ Name | Type | Description | Notes
 **name** | **String** | The name attribute of the resource associated with the status StatusReason (when there is a single name which can be described). | [optional] 
 **retry_after_seconds** | **Integer** | If specified, the time in seconds before the operation should be retried. Some errors may indicate the client must take an alternate action - for those errors this field may indicate how long to wait before taking the alternate action. | [optional] 
 **uid** | **String** | UID of the resource. (when there is a single resource which can be described). More info: http://kubernetes.io/docs/user-guide/identifiers#uids | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1StatusDetails.new(causes: null,
+                                 group: null,
+                                 kind: null,
+                                 name: null,
+                                 retry_after_seconds: null,
+                                 uid: null)
+```
 
 

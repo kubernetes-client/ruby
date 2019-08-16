@@ -1,6 +1,7 @@
 # Kubernetes::V1beta1CustomResourceColumnDefinition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **json_path** | **String** | JSONPath is a simple JSON path, i.e. with array notation. | 
@@ -9,5 +10,18 @@ Name | Type | Description | Notes
 **name** | **String** | name is a human readable name for the column. | 
 **priority** | **Integer** | priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a higher priority. | [optional] 
 **type** | **String** | type is an OpenAPI type definition for this column. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for more. | 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1beta1CustomResourceColumnDefinition.new(json_path: null,
+                                 description: null,
+                                 format: null,
+                                 name: null,
+                                 priority: null,
+                                 type: null)
+```
 
 

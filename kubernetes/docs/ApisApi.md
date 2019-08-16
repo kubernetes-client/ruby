@@ -1,13 +1,15 @@
 # Kubernetes::ApisApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_api_versions**](ApisApi.md#get_api_versions) | **GET** /apis/ | 
 
 
-# **get_api_versions**
+
+## get_api_versions
+
 > V1APIGroupList get_api_versions
 
 
@@ -15,6 +17,7 @@ Method | HTTP request | Description
 get available API versions
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -37,6 +40,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -49,8 +53,6 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/yaml, application/vnd.kubernetes.protobuf
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 

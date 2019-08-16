@@ -1,6 +1,6 @@
 # Kubernetes::AppsV1beta1Api
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -44,14 +44,17 @@ Method | HTTP request | Description
 [**replace_namespaced_stateful_set_status**](AppsV1beta1Api.md#replace_namespaced_stateful_set_status) | **PUT** /apis/apps/v1beta1/namespaces/{namespace}/statefulsets/{name}/status | 
 
 
-# **create_namespaced_controller_revision**
-> V1beta1ControllerRevision create_namespaced_controller_revision(namespacebody, opts)
+
+## create_namespaced_controller_revision
+
+> V1beta1ControllerRevision create_namespaced_controller_revision(namespace, body, opts)
 
 
 
 create a ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -64,19 +67,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::V1beta1ControllerRevision.new # V1beta1ControllerRevision | 
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
-  result = api_instance.create_namespaced_controller_revision(namespacebody, opts)
+  result = api_instance.create_namespaced_controller_revision(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->create_namespaced_controller_revision: #{e}"
@@ -85,13 +85,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **body** | [**V1beta1ControllerRevision**](V1beta1ControllerRevision.md)|  | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -103,19 +104,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## create_namespaced_deployment
 
-# **create_namespaced_deployment**
-> AppsV1beta1Deployment create_namespaced_deployment(namespacebody, opts)
+> AppsV1beta1Deployment create_namespaced_deployment(namespace, body, opts)
 
 
 
 create a Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -128,19 +130,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::AppsV1beta1Deployment.new # AppsV1beta1Deployment | 
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
-  result = api_instance.create_namespaced_deployment(namespacebody, opts)
+  result = api_instance.create_namespaced_deployment(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->create_namespaced_deployment: #{e}"
@@ -149,13 +148,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **body** | [**AppsV1beta1Deployment**](AppsV1beta1Deployment.md)|  | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -167,12 +167,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## create_namespaced_deployment_rollback
 
-# **create_namespaced_deployment_rollback**
 > V1Status create_namespaced_deployment_rollback(name, namespace, body, opts)
 
 
@@ -180,6 +180,7 @@ Name | Type | Description  | Notes
 create rollback of a Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -192,17 +193,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the DeploymentRollback
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the DeploymentRollback
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::AppsV1beta1DeploymentRollback.new # AppsV1beta1DeploymentRollback | 
-
-opts = { 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
-  pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
+opts = {
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
@@ -215,13 +212,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the DeploymentRollback | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **body** | [**AppsV1beta1DeploymentRollback**](AppsV1beta1DeploymentRollback.md)|  | 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
- **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -234,19 +232,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## create_namespaced_stateful_set
 
-# **create_namespaced_stateful_set**
-> V1beta1StatefulSet create_namespaced_stateful_set(namespacebody, opts)
+> V1beta1StatefulSet create_namespaced_stateful_set(namespace, body, opts)
 
 
 
 create a StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -259,19 +258,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::V1beta1StatefulSet.new # V1beta1StatefulSet | 
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
-  result = api_instance.create_namespaced_stateful_set(namespacebody, opts)
+  result = api_instance.create_namespaced_stateful_set(namespace, body, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->create_namespaced_stateful_set: #{e}"
@@ -280,13 +276,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **body** | [**V1beta1StatefulSet**](V1beta1StatefulSet.md)|  | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -298,12 +295,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## delete_collection_namespaced_controller_revision
 
-# **delete_collection_namespaced_controller_revision**
 > V1Status delete_collection_namespaced_controller_revision(namespace, opts)
 
 
@@ -311,6 +308,7 @@ Name | Type | Description  | Notes
 delete collection of ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -323,19 +321,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -348,10 +343,10 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
@@ -359,7 +354,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -371,12 +366,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## delete_collection_namespaced_deployment
 
-# **delete_collection_namespaced_deployment**
 > V1Status delete_collection_namespaced_deployment(namespace, opts)
 
 
@@ -384,6 +379,7 @@ Name | Type | Description  | Notes
 delete collection of Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -396,19 +392,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -421,10 +414,10 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
@@ -432,7 +425,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -444,12 +437,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## delete_collection_namespaced_stateful_set
 
-# **delete_collection_namespaced_stateful_set**
 > V1Status delete_collection_namespaced_stateful_set(namespace, opts)
 
 
@@ -457,6 +450,7 @@ Name | Type | Description  | Notes
 delete collection of StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -469,19 +463,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -494,10 +485,10 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
@@ -505,7 +496,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -517,19 +508,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## delete_namespaced_controller_revision
 
-# **delete_namespaced_controller_revision**
-> V1Status delete_namespaced_controller_revision(name, namespace, , opts)
+> V1Status delete_namespaced_controller_revision(name, namespace, opts)
 
 
 
 delete a ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -542,22 +534,19 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the ControllerRevision
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  body: Kubernetes::V1DeleteOptions.new, # V1DeleteOptions | 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+name = 'name_example' # String | name of the ControllerRevision
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
   grace_period_seconds: 56, # Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-  orphan_dependents: true, # BOOLEAN | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-  propagation_policy: "propagation_policy_example" # String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+  orphan_dependents: true, # Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+  propagation_policy: 'propagation_policy_example', # String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+  body: Kubernetes::V1DeleteOptions.new # V1DeleteOptions | 
 }
 
 begin
-  result = api_instance.delete_namespaced_controller_revision(name, namespace, , opts)
+  result = api_instance.delete_namespaced_controller_revision(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->delete_namespaced_controller_revision: #{e}"
@@ -566,16 +555,17 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ControllerRevision | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
  **grace_period_seconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional] 
- **orphan_dependents** | **BOOLEAN**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] 
+ **orphan_dependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] 
  **propagation_policy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional] 
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] 
 
 ### Return type
 
@@ -587,19 +577,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## delete_namespaced_deployment
 
-# **delete_namespaced_deployment**
-> V1Status delete_namespaced_deployment(name, namespace, , opts)
+> V1Status delete_namespaced_deployment(name, namespace, opts)
 
 
 
 delete a Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -612,22 +603,19 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  body: Kubernetes::V1DeleteOptions.new, # V1DeleteOptions | 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
   grace_period_seconds: 56, # Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-  orphan_dependents: true, # BOOLEAN | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-  propagation_policy: "propagation_policy_example" # String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+  orphan_dependents: true, # Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+  propagation_policy: 'propagation_policy_example', # String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+  body: Kubernetes::V1DeleteOptions.new # V1DeleteOptions | 
 }
 
 begin
-  result = api_instance.delete_namespaced_deployment(name, namespace, , opts)
+  result = api_instance.delete_namespaced_deployment(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->delete_namespaced_deployment: #{e}"
@@ -636,16 +624,17 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
  **grace_period_seconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional] 
- **orphan_dependents** | **BOOLEAN**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] 
+ **orphan_dependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] 
  **propagation_policy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional] 
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] 
 
 ### Return type
 
@@ -657,19 +646,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## delete_namespaced_stateful_set
 
-# **delete_namespaced_stateful_set**
-> V1Status delete_namespaced_stateful_set(name, namespace, , opts)
+> V1Status delete_namespaced_stateful_set(name, namespace, opts)
 
 
 
 delete a StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -682,22 +672,19 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  body: Kubernetes::V1DeleteOptions.new, # V1DeleteOptions | 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
   grace_period_seconds: 56, # Integer | The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.
-  orphan_dependents: true, # BOOLEAN | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
-  propagation_policy: "propagation_policy_example" # String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+  orphan_dependents: true, # Boolean | Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \"orphan\" finalizer will be added to/removed from the object's finalizers list. Either this field or PropagationPolicy may be set, but not both.
+  propagation_policy: 'propagation_policy_example', # String | Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.
+  body: Kubernetes::V1DeleteOptions.new # V1DeleteOptions | 
 }
 
 begin
-  result = api_instance.delete_namespaced_stateful_set(name, namespace, , opts)
+  result = api_instance.delete_namespaced_stateful_set(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->delete_namespaced_stateful_set: #{e}"
@@ -706,16 +693,17 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
- **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
  **grace_period_seconds** | **Integer**| The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. | [optional] 
- **orphan_dependents** | **BOOLEAN**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] 
+ **orphan_dependents** | **Boolean**| Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. | [optional] 
  **propagation_policy** | **String**| Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: &#39;Orphan&#39; - orphan the dependents; &#39;Background&#39; - allow the garbage collector to delete the dependents in the background; &#39;Foreground&#39; - a cascading policy that deletes all dependents in the foreground. | [optional] 
+ **body** | [**V1DeleteOptions**](V1DeleteOptions.md)|  | [optional] 
 
 ### Return type
 
@@ -727,12 +715,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## get_api_resources
 
-# **get_api_resources**
 > V1APIResourceList get_api_resources
 
 
@@ -740,6 +728,7 @@ Name | Type | Description  | Notes
 get available resources
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -762,6 +751,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -774,12 +764,12 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/yaml, application/vnd.kubernetes.protobuf
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## list_controller_revision_for_all_namespaces
 
-# **list_controller_revision_for_all_namespaces**
 > V1beta1ControllerRevisionList list_controller_revision_for_all_namespaces(opts)
 
 
@@ -787,6 +777,7 @@ This endpoint does not need any parameter.
 list or watch objects of kind ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -799,17 +790,15 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-opts = { 
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+opts = {
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -822,17 +811,17 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **label_selector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional] 
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -844,12 +833,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
 
 
+## list_deployment_for_all_namespaces
 
-# **list_deployment_for_all_namespaces**
 > AppsV1beta1DeploymentList list_deployment_for_all_namespaces(opts)
 
 
@@ -857,6 +846,7 @@ Name | Type | Description  | Notes
 list or watch objects of kind Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -869,17 +859,15 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-opts = { 
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+opts = {
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -892,17 +880,17 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **label_selector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional] 
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -914,12 +902,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
 
 
+## list_namespaced_controller_revision
 
-# **list_namespaced_controller_revision**
 > V1beta1ControllerRevisionList list_namespaced_controller_revision(namespace, opts)
 
 
@@ -927,6 +915,7 @@ Name | Type | Description  | Notes
 list or watch objects of kind ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -939,19 +928,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -964,10 +950,10 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
@@ -975,7 +961,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -987,12 +973,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
 
 
+## list_namespaced_deployment
 
-# **list_namespaced_deployment**
 > AppsV1beta1DeploymentList list_namespaced_deployment(namespace, opts)
 
 
@@ -1000,6 +986,7 @@ Name | Type | Description  | Notes
 list or watch objects of kind Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1012,19 +999,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -1037,10 +1021,10 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
@@ -1048,7 +1032,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -1060,12 +1044,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
 
 
+## list_namespaced_stateful_set
 
-# **list_namespaced_stateful_set**
 > V1beta1StatefulSetList list_namespaced_stateful_set(namespace, opts)
 
 
@@ -1073,6 +1057,7 @@ Name | Type | Description  | Notes
 list or watch objects of kind StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1085,19 +1070,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -1110,10 +1092,10 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
@@ -1121,7 +1103,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -1133,12 +1115,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
 
 
+## list_stateful_set_for_all_namespaces
 
-# **list_stateful_set_for_all_namespaces**
 > V1beta1StatefulSetList list_stateful_set_for_all_namespaces(opts)
 
 
@@ -1146,6 +1128,7 @@ Name | Type | Description  | Notes
 list or watch objects of kind StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1158,17 +1141,15 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-opts = { 
-  continue: "continue_example", # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
-  field_selector: "field_selector_example", # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
-  include_uninitialized: true, # BOOLEAN | If true, partially initialized resources are included in the response.
-  label_selector: "label_selector_example", # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
+opts = {
+  continue: 'continue_example', # String | The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \"next key\".  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.
+  field_selector: 'field_selector_example', # String | A selector to restrict the list of returned objects by their fields. Defaults to everything.
+  label_selector: 'label_selector_example', # String | A selector to restrict the list of returned objects by their labels. Defaults to everything.
   limit: 56, # Integer | limit is a maximum number of responses to return for a list call. If more items exist, the server will set the `continue` field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  resource_version: "resource_version_example", # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  resource_version: 'resource_version_example', # String | When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it's 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv.
   timeout_seconds: 56, # Integer | Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity.
-  watch: true # BOOLEAN | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
+  watch: true # Boolean | Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.
 }
 
 begin
@@ -1181,17 +1162,17 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **continue** | **String**| The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server, the server will respond with a 410 ResourceExpired error together with a continue token. If the client needs a consistent list, it must restart their list without the continue field. Otherwise, the client may send another list request with the token received with the 410 error, the server will respond with a list starting from the next key, but from the latest snapshot, which is inconsistent from the previous list results - objects that are created, modified, or deleted after the first list request will be included in the response, as long as their keys are after the \&quot;next key\&quot;.  This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications. | [optional] 
  **field_selector** | **String**| A selector to restrict the list of returned objects by their fields. Defaults to everything. | [optional] 
- **include_uninitialized** | **BOOLEAN**| If true, partially initialized resources are included in the response. | [optional] 
  **label_selector** | **String**| A selector to restrict the list of returned objects by their labels. Defaults to everything. | [optional] 
  **limit** | **Integer**| limit is a maximum number of responses to return for a list call. If more items exist, the server will set the &#x60;continue&#x60; field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.  The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **resource_version** | **String**| When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history. When specified for list: - if unset, then the result is returned from remote storage based on quorum-read flag; - if it&#39;s 0, then we simply return what we currently have in cache, no guarantee; - if set to non zero, then the result is at least as fresh as given rv. | [optional] 
  **timeout_seconds** | **Integer**| Timeout for the list/watch call. This limits the duration of the call, regardless of any activity or inactivity. | [optional] 
- **watch** | **BOOLEAN**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
+ **watch** | **Boolean**| Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion. | [optional] 
 
 ### Return type
 
@@ -1203,12 +1184,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf, application/json;stream=watch, application/vnd.kubernetes.protobuf;stream=watch
 
 
+## patch_namespaced_controller_revision
 
-# **patch_namespaced_controller_revision**
 > V1beta1ControllerRevision patch_namespaced_controller_revision(name, namespace, body, opts)
 
 
@@ -1216,6 +1197,7 @@ Name | Type | Description  | Notes
 partially update the specified ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1228,16 +1210,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the ControllerRevision
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the ControllerRevision
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1250,6 +1230,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ControllerRevision | 
@@ -1257,6 +1238,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1268,12 +1251,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## patch_namespaced_deployment
 
-# **patch_namespaced_deployment**
 > AppsV1beta1Deployment patch_namespaced_deployment(name, namespace, body, opts)
 
 
@@ -1281,6 +1264,7 @@ Name | Type | Description  | Notes
 partially update the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1293,16 +1277,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1315,6 +1297,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment | 
@@ -1322,6 +1305,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1333,12 +1318,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## patch_namespaced_deployment_scale
 
-# **patch_namespaced_deployment_scale**
 > AppsV1beta1Scale patch_namespaced_deployment_scale(name, namespace, body, opts)
 
 
@@ -1346,6 +1331,7 @@ Name | Type | Description  | Notes
 partially update scale of the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1358,16 +1344,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Scale
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Scale
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1380,6 +1364,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Scale | 
@@ -1387,6 +1372,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1398,12 +1385,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## patch_namespaced_deployment_status
 
-# **patch_namespaced_deployment_status**
 > AppsV1beta1Deployment patch_namespaced_deployment_status(name, namespace, body, opts)
 
 
@@ -1411,6 +1398,7 @@ Name | Type | Description  | Notes
 partially update status of the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1423,16 +1411,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1445,6 +1431,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment | 
@@ -1452,6 +1439,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1463,12 +1452,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## patch_namespaced_stateful_set
 
-# **patch_namespaced_stateful_set**
 > V1beta1StatefulSet patch_namespaced_stateful_set(name, namespace, body, opts)
 
 
@@ -1476,6 +1465,7 @@ Name | Type | Description  | Notes
 partially update the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1488,16 +1478,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1510,6 +1498,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet | 
@@ -1517,6 +1506,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1528,12 +1519,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## patch_namespaced_stateful_set_scale
 
-# **patch_namespaced_stateful_set_scale**
 > AppsV1beta1Scale patch_namespaced_stateful_set_scale(name, namespace, body, opts)
 
 
@@ -1541,6 +1532,7 @@ Name | Type | Description  | Notes
 partially update scale of the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1553,16 +1545,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Scale
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Scale
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1575,6 +1565,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Scale | 
@@ -1582,6 +1573,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1593,12 +1586,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## patch_namespaced_stateful_set_status
 
-# **patch_namespaced_stateful_set_status**
 > V1beta1StatefulSet patch_namespaced_stateful_set_status(name, namespace, body, opts)
 
 
@@ -1606,6 +1599,7 @@ Name | Type | Description  | Notes
 partially update status of the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1618,16 +1612,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = nil # Object | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch).
+  force: true # Boolean | Force is going to \"force\" Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests.
 }
 
 begin
@@ -1640,6 +1632,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet | 
@@ -1647,6 +1640,8 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). | [optional] 
+ **force** | **Boolean**| Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. | [optional] 
 
 ### Return type
 
@@ -1658,19 +1653,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: application/json-patch+json, application/merge-patch+json, application/strategic-merge-patch+json
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_controller_revision
 
-# **read_namespaced_controller_revision**
-> V1beta1ControllerRevision read_namespaced_controller_revision(name, namespace, , opts)
+> V1beta1ControllerRevision read_namespaced_controller_revision(name, namespace, opts)
 
 
 
 read the specified ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1683,19 +1679,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the ControllerRevision
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  exact: true, # BOOLEAN | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-  export: true # BOOLEAN | Should this value be exported.  Export strips fields that a user can not specify.
+name = 'name_example' # String | name of the ControllerRevision
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  exact: true, # Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
+  export: true # Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
 }
 
 begin
-  result = api_instance.read_namespaced_controller_revision(name, namespace, , opts)
+  result = api_instance.read_namespaced_controller_revision(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_controller_revision: #{e}"
@@ -1704,13 +1697,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ControllerRevision | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
- **exact** | **BOOLEAN**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional] 
- **export** | **BOOLEAN**| Should this value be exported.  Export strips fields that a user can not specify. | [optional] 
+ **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. | [optional] 
+ **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18. | [optional] 
 
 ### Return type
 
@@ -1722,19 +1716,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_deployment
 
-# **read_namespaced_deployment**
-> AppsV1beta1Deployment read_namespaced_deployment(name, namespace, , opts)
+> AppsV1beta1Deployment read_namespaced_deployment(name, namespace, opts)
 
 
 
 read the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1747,19 +1742,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  exact: true, # BOOLEAN | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-  export: true # BOOLEAN | Should this value be exported.  Export strips fields that a user can not specify.
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  exact: true, # Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
+  export: true # Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
 }
 
 begin
-  result = api_instance.read_namespaced_deployment(name, namespace, , opts)
+  result = api_instance.read_namespaced_deployment(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_deployment: #{e}"
@@ -1768,13 +1760,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
- **exact** | **BOOLEAN**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional] 
- **export** | **BOOLEAN**| Should this value be exported.  Export strips fields that a user can not specify. | [optional] 
+ **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. | [optional] 
+ **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18. | [optional] 
 
 ### Return type
 
@@ -1786,19 +1779,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_deployment_scale
 
-# **read_namespaced_deployment_scale**
-> AppsV1beta1Scale read_namespaced_deployment_scale(name, namespace, , opts)
+> AppsV1beta1Scale read_namespaced_deployment_scale(name, namespace, opts)
 
 
 
 read scale of the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1811,17 +1805,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Scale
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
+name = 'name_example' # String | name of the Scale
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
-  result = api_instance.read_namespaced_deployment_scale(name, namespace, , opts)
+  result = api_instance.read_namespaced_deployment_scale(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_deployment_scale: #{e}"
@@ -1830,6 +1821,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Scale | 
@@ -1846,19 +1838,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_deployment_status
 
-# **read_namespaced_deployment_status**
-> AppsV1beta1Deployment read_namespaced_deployment_status(name, namespace, , opts)
+> AppsV1beta1Deployment read_namespaced_deployment_status(name, namespace, opts)
 
 
 
 read status of the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1871,17 +1864,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
-  result = api_instance.read_namespaced_deployment_status(name, namespace, , opts)
+  result = api_instance.read_namespaced_deployment_status(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_deployment_status: #{e}"
@@ -1889,6 +1879,7 @@ end
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -1906,19 +1897,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_stateful_set
 
-# **read_namespaced_stateful_set**
-> V1beta1StatefulSet read_namespaced_stateful_set(name, namespace, , opts)
+> V1beta1StatefulSet read_namespaced_stateful_set(name, namespace, opts)
 
 
 
 read the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1931,19 +1923,16 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  exact: true, # BOOLEAN | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'.
-  export: true # BOOLEAN | Should this value be exported.  Export strips fields that a user can not specify.
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  exact: true, # Boolean | Should the export be exact.  Exact export maintains cluster-specific fields like 'Namespace'. Deprecated. Planned for removal in 1.18.
+  export: true # Boolean | Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18.
 }
 
 begin
-  result = api_instance.read_namespaced_stateful_set(name, namespace, , opts)
+  result = api_instance.read_namespaced_stateful_set(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_stateful_set: #{e}"
@@ -1952,13 +1941,14 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet | 
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
- **exact** | **BOOLEAN**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. | [optional] 
- **export** | **BOOLEAN**| Should this value be exported.  Export strips fields that a user can not specify. | [optional] 
+ **exact** | **Boolean**| Should the export be exact.  Exact export maintains cluster-specific fields like &#39;Namespace&#39;. Deprecated. Planned for removal in 1.18. | [optional] 
+ **export** | **Boolean**| Should this value be exported.  Export strips fields that a user can not specify. Deprecated. Planned for removal in 1.18. | [optional] 
 
 ### Return type
 
@@ -1970,19 +1960,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_stateful_set_scale
 
-# **read_namespaced_stateful_set_scale**
-> AppsV1beta1Scale read_namespaced_stateful_set_scale(name, namespace, , opts)
+> AppsV1beta1Scale read_namespaced_stateful_set_scale(name, namespace, opts)
 
 
 
 read scale of the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -1995,17 +1986,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Scale
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
+name = 'name_example' # String | name of the Scale
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
-  result = api_instance.read_namespaced_stateful_set_scale(name, namespace, , opts)
+  result = api_instance.read_namespaced_stateful_set_scale(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_stateful_set_scale: #{e}"
@@ -2013,6 +2001,7 @@ end
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2030,19 +2019,20 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## read_namespaced_stateful_set_status
 
-# **read_namespaced_stateful_set_status**
-> V1beta1StatefulSet read_namespaced_stateful_set_status(name, namespace, , opts)
+> V1beta1StatefulSet read_namespaced_stateful_set_status(name, namespace, opts)
 
 
 
 read status of the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2055,17 +2045,14 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
+opts = {
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
-  result = api_instance.read_namespaced_stateful_set_status(name, namespace, , opts)
+  result = api_instance.read_namespaced_stateful_set_status(name, namespace, opts)
   p result
 rescue Kubernetes::ApiError => e
   puts "Exception when calling AppsV1beta1Api->read_namespaced_stateful_set_status: #{e}"
@@ -2073,6 +2060,7 @@ end
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -2090,12 +2078,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_controller_revision
 
-# **replace_namespaced_controller_revision**
 > V1beta1ControllerRevision replace_namespaced_controller_revision(name, namespace, body, opts)
 
 
@@ -2103,6 +2091,7 @@ Name | Type | Description  | Notes
 replace the specified ControllerRevision
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2115,16 +2104,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the ControllerRevision
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the ControllerRevision
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::V1beta1ControllerRevision.new # V1beta1ControllerRevision | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2137,6 +2123,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the ControllerRevision | 
@@ -2144,6 +2131,7 @@ Name | Type | Description  | Notes
  **body** | [**V1beta1ControllerRevision**](V1beta1ControllerRevision.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2155,12 +2143,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_deployment
 
-# **replace_namespaced_deployment**
 > AppsV1beta1Deployment replace_namespaced_deployment(name, namespace, body, opts)
 
 
@@ -2168,6 +2156,7 @@ Name | Type | Description  | Notes
 replace the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2180,16 +2169,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::AppsV1beta1Deployment.new # AppsV1beta1Deployment | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2202,6 +2188,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment | 
@@ -2209,6 +2196,7 @@ Name | Type | Description  | Notes
  **body** | [**AppsV1beta1Deployment**](AppsV1beta1Deployment.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2220,12 +2208,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_deployment_scale
 
-# **replace_namespaced_deployment_scale**
 > AppsV1beta1Scale replace_namespaced_deployment_scale(name, namespace, body, opts)
 
 
@@ -2233,6 +2221,7 @@ Name | Type | Description  | Notes
 replace scale of the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2245,16 +2234,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Scale
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Scale
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::AppsV1beta1Scale.new # AppsV1beta1Scale | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2267,6 +2253,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Scale | 
@@ -2274,6 +2261,7 @@ Name | Type | Description  | Notes
  **body** | [**AppsV1beta1Scale**](AppsV1beta1Scale.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2285,12 +2273,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_deployment_status
 
-# **replace_namespaced_deployment_status**
 > AppsV1beta1Deployment replace_namespaced_deployment_status(name, namespace, body, opts)
 
 
@@ -2298,6 +2286,7 @@ Name | Type | Description  | Notes
 replace status of the specified Deployment
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2310,16 +2299,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Deployment
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Deployment
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::AppsV1beta1Deployment.new # AppsV1beta1Deployment | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2332,6 +2318,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Deployment | 
@@ -2339,6 +2326,7 @@ Name | Type | Description  | Notes
  **body** | [**AppsV1beta1Deployment**](AppsV1beta1Deployment.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2350,12 +2338,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_stateful_set
 
-# **replace_namespaced_stateful_set**
 > V1beta1StatefulSet replace_namespaced_stateful_set(name, namespace, body, opts)
 
 
@@ -2363,6 +2351,7 @@ Name | Type | Description  | Notes
 replace the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2375,16 +2364,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::V1beta1StatefulSet.new # V1beta1StatefulSet | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2397,6 +2383,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet | 
@@ -2404,6 +2391,7 @@ Name | Type | Description  | Notes
  **body** | [**V1beta1StatefulSet**](V1beta1StatefulSet.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2415,12 +2403,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_stateful_set_scale
 
-# **replace_namespaced_stateful_set_scale**
 > AppsV1beta1Scale replace_namespaced_stateful_set_scale(name, namespace, body, opts)
 
 
@@ -2428,6 +2416,7 @@ Name | Type | Description  | Notes
 replace scale of the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2440,16 +2429,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the Scale
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the Scale
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::AppsV1beta1Scale.new # AppsV1beta1Scale | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2462,6 +2448,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the Scale | 
@@ -2469,6 +2456,7 @@ Name | Type | Description  | Notes
  **body** | [**AppsV1beta1Scale**](AppsV1beta1Scale.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2480,12 +2468,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## replace_namespaced_stateful_set_status
 
-# **replace_namespaced_stateful_set_status**
 > V1beta1StatefulSet replace_namespaced_stateful_set_status(name, namespace, body, opts)
 
 
@@ -2493,6 +2481,7 @@ Name | Type | Description  | Notes
 replace status of the specified StatefulSet
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -2505,16 +2494,13 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AppsV1beta1Api.new
-
-name = "name_example" # String | name of the StatefulSet
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+name = 'name_example' # String | name of the StatefulSet
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::V1beta1StatefulSet.new # V1beta1StatefulSet | 
-
-opts = { 
-  pretty: "pretty_example", # String | If 'true', then the output is pretty printed.
-  dry_run: "dry_run_example" # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+opts = {
+  pretty: 'pretty_example', # String | If 'true', then the output is pretty printed.
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example' # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
 }
 
 begin
@@ -2527,6 +2513,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| name of the StatefulSet | 
@@ -2534,6 +2521,7 @@ Name | Type | Description  | Notes
  **body** | [**V1beta1StatefulSet**](V1beta1StatefulSet.md)|  | 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
 
 ### Return type
 
@@ -2545,8 +2533,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 

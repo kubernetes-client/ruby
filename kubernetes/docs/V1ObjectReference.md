@@ -1,6 +1,7 @@
 # Kubernetes::V1ObjectReference
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **api_version** | **String** | API version of the referent. | [optional] 
@@ -10,5 +11,19 @@ Name | Type | Description | Notes
 **namespace** | **String** | Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/ | [optional] 
 **resource_version** | **String** | Specific resourceVersion to which this reference is made, if any. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency | [optional] 
 **uid** | **String** | UID of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#uids | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1ObjectReference.new(api_version: null,
+                                 field_path: null,
+                                 kind: null,
+                                 name: null,
+                                 namespace: null,
+                                 resource_version: null,
+                                 uid: null)
+```
 
 

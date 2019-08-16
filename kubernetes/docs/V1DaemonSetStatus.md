@@ -1,6 +1,7 @@
 # Kubernetes::V1DaemonSetStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **collision_count** | **Integer** | Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision. | [optional] 
@@ -13,5 +14,22 @@ Name | Type | Description | Notes
 **number_unavailable** | **Integer** | The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds) | [optional] 
 **observed_generation** | **Integer** | The most recent generation observed by the daemon set controller. | [optional] 
 **updated_number_scheduled** | **Integer** | The total number of nodes that are running updated daemon pod | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1DaemonSetStatus.new(collision_count: null,
+                                 conditions: null,
+                                 current_number_scheduled: null,
+                                 desired_number_scheduled: null,
+                                 number_available: null,
+                                 number_misscheduled: null,
+                                 number_ready: null,
+                                 number_unavailable: null,
+                                 observed_generation: null,
+                                 updated_number_scheduled: null)
+```
 
 

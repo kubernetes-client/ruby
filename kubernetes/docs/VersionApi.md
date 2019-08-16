@@ -1,13 +1,15 @@
 # Kubernetes::VersionApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_code**](VersionApi.md#get_code) | **GET** /version/ | 
 
 
-# **get_code**
+
+## get_code
+
 > VersionInfo get_code
 
 
@@ -15,6 +17,7 @@ Method | HTTP request | Description
 get the code version
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -37,6 +40,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -49,8 +53,6 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

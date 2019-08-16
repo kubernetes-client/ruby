@@ -1,6 +1,7 @@
 # Kubernetes::V1DeploymentStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **available_replicas** | **Integer** | Total number of available pods (ready for at least minReadySeconds) targeted by this deployment. | [optional] 
@@ -11,5 +12,20 @@ Name | Type | Description | Notes
 **replicas** | **Integer** | Total number of non-terminated pods targeted by this deployment (their labels match the selector). | [optional] 
 **unavailable_replicas** | **Integer** | Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created. | [optional] 
 **updated_replicas** | **Integer** | Total number of non-terminated pods targeted by this deployment that have the desired template spec. | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1DeploymentStatus.new(available_replicas: null,
+                                 collision_count: null,
+                                 conditions: null,
+                                 observed_generation: null,
+                                 ready_replicas: null,
+                                 replicas: null,
+                                 unavailable_replicas: null,
+                                 updated_replicas: null)
+```
 
 

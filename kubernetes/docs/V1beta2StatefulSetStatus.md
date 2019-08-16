@@ -1,6 +1,7 @@
 # Kubernetes::V1beta2StatefulSetStatus
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **collision_count** | **Integer** | collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision. | [optional] 
@@ -12,5 +13,21 @@ Name | Type | Description | Notes
 **replicas** | **Integer** | replicas is the number of Pods created by the StatefulSet controller. | 
 **update_revision** | **String** | updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas) | [optional] 
 **updated_replicas** | **Integer** | updatedReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision. | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1beta2StatefulSetStatus.new(collision_count: null,
+                                 conditions: null,
+                                 current_replicas: null,
+                                 current_revision: null,
+                                 observed_generation: null,
+                                 ready_replicas: null,
+                                 replicas: null,
+                                 update_revision: null,
+                                 updated_replicas: null)
+```
 
 

@@ -1,13 +1,15 @@
 # Kubernetes::ApiregistrationApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_api_group**](ApiregistrationApi.md#get_api_group) | **GET** /apis/apiregistration.k8s.io/ | 
 
 
-# **get_api_group**
+
+## get_api_group
+
 > V1APIGroup get_api_group
 
 
@@ -15,6 +17,7 @@ Method | HTTP request | Description
 get information of a group
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -37,6 +40,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -49,8 +53,6 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/yaml, application/vnd.kubernetes.protobuf
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 

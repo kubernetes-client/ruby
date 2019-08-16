@@ -1,6 +1,6 @@
 # Kubernetes::AuthorizationV1beta1Api
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,7 +11,9 @@ Method | HTTP request | Description
 [**get_api_resources**](AuthorizationV1beta1Api.md#get_api_resources) | **GET** /apis/authorization.k8s.io/v1beta1/ | 
 
 
-# **create_namespaced_local_subject_access_review**
+
+## create_namespaced_local_subject_access_review
+
 > V1beta1LocalSubjectAccessReview create_namespaced_local_subject_access_review(namespace, body, opts)
 
 
@@ -19,6 +21,7 @@ Method | HTTP request | Description
 create a LocalSubjectAccessReview
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -31,15 +34,12 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AuthorizationV1beta1Api.new
-
-namespace = "namespace_example" # String | object name and auth scope, such as for teams and projects
-
+namespace = 'namespace_example' # String | object name and auth scope, such as for teams and projects
 body = Kubernetes::V1beta1LocalSubjectAccessReview.new # V1beta1LocalSubjectAccessReview | 
-
-opts = { 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
-  pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
+opts = {
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
@@ -52,12 +52,13 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **String**| object name and auth scope, such as for teams and projects | 
  **body** | [**V1beta1LocalSubjectAccessReview**](V1beta1LocalSubjectAccessReview.md)|  | 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
- **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -70,12 +71,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## create_self_subject_access_review
 
-# **create_self_subject_access_review**
 > V1beta1SelfSubjectAccessReview create_self_subject_access_review(body, opts)
 
 
@@ -83,6 +84,7 @@ Name | Type | Description  | Notes
 create a SelfSubjectAccessReview
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -95,13 +97,11 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AuthorizationV1beta1Api.new
-
 body = Kubernetes::V1beta1SelfSubjectAccessReview.new # V1beta1SelfSubjectAccessReview | 
-
-opts = { 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
-  pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
+opts = {
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
@@ -114,11 +114,12 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1SelfSubjectAccessReview**](V1beta1SelfSubjectAccessReview.md)|  | 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
- **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -131,12 +132,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## create_self_subject_rules_review
 
-# **create_self_subject_rules_review**
 > V1beta1SelfSubjectRulesReview create_self_subject_rules_review(body, opts)
 
 
@@ -144,6 +145,7 @@ Name | Type | Description  | Notes
 create a SelfSubjectRulesReview
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -156,13 +158,11 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AuthorizationV1beta1Api.new
-
 body = Kubernetes::V1beta1SelfSubjectRulesReview.new # V1beta1SelfSubjectRulesReview | 
-
-opts = { 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
-  pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
+opts = {
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
@@ -175,11 +175,12 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1SelfSubjectRulesReview**](V1beta1SelfSubjectRulesReview.md)|  | 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
- **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -192,12 +193,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## create_subject_access_review
 
-# **create_subject_access_review**
 > V1beta1SubjectAccessReview create_subject_access_review(body, opts)
 
 
@@ -205,6 +206,7 @@ Name | Type | Description  | Notes
 create a SubjectAccessReview
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -217,13 +219,11 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::AuthorizationV1beta1Api.new
-
 body = Kubernetes::V1beta1SubjectAccessReview.new # V1beta1SubjectAccessReview | 
-
-opts = { 
-  dry_run: "dry_run_example", # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
-  include_uninitialized: true, # BOOLEAN | If IncludeUninitialized is specified, the object may be returned without completing initialization.
-  pretty: "pretty_example" # String | If 'true', then the output is pretty printed.
+opts = {
+  dry_run: 'dry_run_example', # String | When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed
+  field_manager: 'field_manager_example', # String | fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint.
+  pretty: 'pretty_example' # String | If 'true', then the output is pretty printed.
 }
 
 begin
@@ -236,11 +236,12 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**V1beta1SubjectAccessReview**](V1beta1SubjectAccessReview.md)|  | 
  **dry_run** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] 
- **include_uninitialized** | **BOOLEAN**| If IncludeUninitialized is specified, the object may be returned without completing initialization. | [optional] 
+ **field_manager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] 
  **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] 
 
 ### Return type
@@ -253,12 +254,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 
+## get_api_resources
 
-# **get_api_resources**
 > V1APIResourceList get_api_resources
 
 
@@ -266,6 +267,7 @@ Name | Type | Description  | Notes
 get available resources
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -288,6 +290,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -300,8 +303,6 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/yaml, application/vnd.kubernetes.protobuf
- - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
-
-
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 

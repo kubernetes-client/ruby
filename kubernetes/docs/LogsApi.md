@@ -1,6 +1,6 @@
 # Kubernetes::LogsApi
 
-All URIs are relative to *https://localhost*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,12 +8,15 @@ Method | HTTP request | Description
 [**log_file_list_handler**](LogsApi.md#log_file_list_handler) | **GET** /logs/ | 
 
 
-# **log_file_handler**
+
+## log_file_handler
+
 > log_file_handler(logpath)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -26,9 +29,7 @@ Kubernetes.configure do |config|
 end
 
 api_instance = Kubernetes::LogsApi.new
-
-logpath = "logpath_example" # String | path to the log
-
+logpath = 'logpath_example' # String | path to the log
 
 begin
   api_instance.log_file_handler(logpath)
@@ -38,6 +39,7 @@ end
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -53,17 +55,18 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
+## log_file_list_handler
 
-# **log_file_list_handler**
 > log_file_list_handler
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'kubernetes'
@@ -85,6 +88,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -97,8 +101,6 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 

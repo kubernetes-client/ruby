@@ -1,6 +1,7 @@
 # Kubernetes::V1beta1ResourceAttributes
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **group** | **String** | Group is the API Group of the Resource.  \&quot;*\&quot; means all. | [optional] 
@@ -10,5 +11,19 @@ Name | Type | Description | Notes
 **subresource** | **String** | Subresource is one of the existing resource types.  \&quot;\&quot; means none. | [optional] 
 **verb** | **String** | Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all. | [optional] 
 **version** | **String** | Version is the API Version of the Resource.  \&quot;*\&quot; means all. | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1beta1ResourceAttributes.new(group: null,
+                                 name: null,
+                                 namespace: null,
+                                 resource: null,
+                                 subresource: null,
+                                 verb: null,
+                                 version: null)
+```
 
 

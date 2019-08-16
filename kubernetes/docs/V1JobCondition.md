@@ -1,6 +1,7 @@
 # Kubernetes::V1JobCondition
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **last_probe_time** | **DateTime** | Last time the condition was checked. | [optional] 
@@ -9,5 +10,18 @@ Name | Type | Description | Notes
 **reason** | **String** | (brief) reason for the condition&#39;s last transition. | [optional] 
 **status** | **String** | Status of the condition, one of True, False, Unknown. | 
 **type** | **String** | Type of job condition, Complete or Failed. | 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1JobCondition.new(last_probe_time: null,
+                                 last_transition_time: null,
+                                 message: null,
+                                 reason: null,
+                                 status: null,
+                                 type: null)
+```
 
 

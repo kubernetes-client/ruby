@@ -1,10 +1,21 @@
 # Kubernetes::V1Handler
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**exec** | [**V1ExecAction**](V1ExecAction.md) | One and only one of the following should be specified. Exec specifies the action to take. | [optional] 
-**http_get** | [**V1HTTPGetAction**](V1HTTPGetAction.md) | HTTPGet specifies the http request to perform. | [optional] 
-**tcp_socket** | [**V1TCPSocketAction**](V1TCPSocketAction.md) | TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported | [optional] 
+**exec** | [**V1ExecAction**](V1ExecAction.md) |  | [optional] 
+**http_get** | [**V1HTTPGetAction**](V1HTTPGetAction.md) |  | [optional] 
+**tcp_socket** | [**V1TCPSocketAction**](V1TCPSocketAction.md) |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1Handler.new(exec: null,
+                                 http_get: null,
+                                 tcp_socket: null)
+```
 
 

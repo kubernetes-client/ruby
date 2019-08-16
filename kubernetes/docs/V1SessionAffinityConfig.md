@@ -1,8 +1,17 @@
 # Kubernetes::V1SessionAffinityConfig
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**client_ip** | [**V1ClientIPConfig**](V1ClientIPConfig.md) | clientIP contains the configurations of Client IP based session affinity. | [optional] 
+**client_ip** | [**V1ClientIPConfig**](V1ClientIPConfig.md) |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'Kubernetes'
+
+instance = Kubernetes::V1SessionAffinityConfig.new(client_ip: null)
+```
 
 
