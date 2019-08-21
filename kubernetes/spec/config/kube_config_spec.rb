@@ -227,9 +227,7 @@ describe Kubernetes::KubeConfig do
 
   context '#list_context_names' do
     it 'should list context names' do
-      # rubocop:disable LineLength
       arr = %w[default no_user empty_user context_ssl context_insecure context_token].sort
-      # rubocop:enable LineLength
       expect(kube_config.list_context_names.sort).to eq(arr)
     end
   end

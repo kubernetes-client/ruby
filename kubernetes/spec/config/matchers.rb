@@ -18,9 +18,11 @@ RSpec::Matchers.define :be_same_configuration_as do |expected|
       {}.tap do |hash|
         configuration.instance_variables.each do |var|
           value = configuration.instance_variable_get(var)
+          # rubocop:disable IfUnlessModifier
           if value.is_a?(Hash) || value.is_a?(String)
             hash[var.to_s.tr('@', '')] = value
           end
+          # rubocop:enable IfUnlessModifier
         end
       end
     end
