@@ -18,7 +18,7 @@ require 'helpers/file_fixtures'
 
 require 'kubernetes/config/incluster_config'
 
-# rubocop:disable BlockLength
+# rubocop:disable Metrics/BlockLength
 describe Kubernetes::InClusterConfig do
   context '#configure' do
     let(:incluster_config) do
@@ -36,6 +36,10 @@ describe Kubernetes::InClusterConfig do
           :@token_file,
           Kubernetes::Testing.file_fixture('tokens/token').to_s
         )
+        c.instance_variable_set(
+          :@token_refresh_period,
+          5
+        )
       end
     end
 
@@ -50,6 +54,18 @@ describe Kubernetes::InClusterConfig do
 
       incluster_config.configure(actual)
       expect(actual).to be_same_configuration_as(expected)
+
+      old_expired_at = incluster_config.token_expires_at
+      incluster_config.instance_variable_set(
+        :@token_file,
+        Kubernetes::Testing.file_fixture('tokens/token2').to_s
+      )
+      allow(Time).to receive(:now).and_return(Time.now+5)
+      actual.api_key_with_prefix('authorization')
+
+      expected.api_key['authorization'] = 'Bearer token2'
+      expect(actual).to be_same_configuration_as(expected)
+      expect(incluster_config.token_expires_at).to be > old_expired_at
     end
   end
 
@@ -141,4 +157,4 @@ describe Kubernetes::InClusterConfig do
     end
   end
 end
-# rubocop:enable BlockLength
+# rubocop:enable Metrics/BlockLength
