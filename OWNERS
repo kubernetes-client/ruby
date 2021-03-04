@@ -1,9 +1,10 @@
 # See the OWNERS docs at https://go.k8s.io/owners
 approvers:
 - brendandburns
-- mbohlool
 - drubin
 reviewers:
 - brendandburns
-- mbohlool
 - drubin
+emeritus_approvers:
+- mbohlool
+
