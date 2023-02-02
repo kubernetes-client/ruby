@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require 'uri'
+require 'cgi'
 
 module Kubernetes
   class Configuration
@@ -175,7 +175,7 @@ module Kubernetes
 
     def base_url
       url = "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '')
-      URI.encode(url)
+      CGI.escape(url)
     end
 
     # Gets API key (with prefix if set).
