@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class ApiregistrationV1Api
@@ -120,7 +120,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling ApiregistrationV1Api.delete_api_service"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -391,7 +391,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiregistrationV1Api.patch_api_service"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -458,7 +458,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiregistrationV1Api.patch_api_service_status"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -521,7 +521,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling ApiregistrationV1Api.read_api_service"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -581,7 +581,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling ApiregistrationV1Api.read_api_service_status"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -647,7 +647,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiregistrationV1Api.replace_api_service"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -714,7 +714,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiregistrationV1Api.replace_api_service_status"
       end
       # resource path
-      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiregistration.k8s.io/v1/apiservices/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

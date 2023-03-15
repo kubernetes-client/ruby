@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class CustomObjectsApi
@@ -144,7 +144,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.create_namespaced_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s)
 
       # query parameters
       query_params = {}
@@ -228,7 +228,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.delete_cluster_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -322,7 +322,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.delete_namespaced_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -398,7 +398,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CustomObjectsApi.get_cluster_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -471,7 +471,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CustomObjectsApi.get_cluster_custom_object_scale"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -544,7 +544,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CustomObjectsApi.get_cluster_custom_object_status"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -623,7 +623,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CustomObjectsApi.get_namespaced_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -702,7 +702,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CustomObjectsApi.get_namespaced_custom_object_scale"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -781,7 +781,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CustomObjectsApi.get_namespaced_custom_object_status"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -946,7 +946,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'plural' when calling CustomObjectsApi.list_namespaced_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s)
 
       # query parameters
       query_params = {}
@@ -1030,7 +1030,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.patch_cluster_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1109,7 +1109,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.patch_cluster_custom_object_scale"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1188,7 +1188,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.patch_cluster_custom_object_status"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1273,7 +1273,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.patch_namespaced_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1358,7 +1358,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.patch_namespaced_custom_object_scale"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1443,7 +1443,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.patch_namespaced_custom_object_status"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1522,7 +1522,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.replace_cluster_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1601,7 +1601,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.replace_cluster_custom_object_scale"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1680,7 +1680,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.replace_cluster_custom_object_status"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1765,7 +1765,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.replace_namespaced_custom_object"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1850,7 +1850,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.replace_namespaced_custom_object_scale"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/scale".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1935,7 +1935,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CustomObjectsApi.replace_namespaced_custom_object_status"
       end
       # resource path
-      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/{group}/{version}/namespaces/{namespace}/{plural}/{name}/status".sub('{' + 'group' + '}', group.to_s).sub('{' + 'version' + '}', version.to_s).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'plural' + '}', plural.to_s).sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

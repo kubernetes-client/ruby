@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class BatchV2alpha1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV2alpha1Api.create_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -132,7 +132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV2alpha1Api.delete_collection_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -214,7 +214,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV2alpha1Api.delete_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -417,7 +417,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV2alpha1Api.list_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -497,7 +497,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV2alpha1Api.patch_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -570,7 +570,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV2alpha1Api.patch_namespaced_cron_job_status"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -639,7 +639,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV2alpha1Api.read_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -705,7 +705,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV2alpha1Api.read_namespaced_cron_job_status"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -777,7 +777,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV2alpha1Api.replace_namespaced_cron_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -850,7 +850,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV2alpha1Api.replace_namespaced_cron_job_status"
       end
       # resource path
-      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v2alpha1/namespaces/{namespace}/cronjobs/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class ApiextensionsV1beta1Api
@@ -196,7 +196,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling ApiextensionsV1beta1Api.delete_custom_resource_definition"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -391,7 +391,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiextensionsV1beta1Api.patch_custom_resource_definition"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -458,7 +458,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiextensionsV1beta1Api.patch_custom_resource_definition_status"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -521,7 +521,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling ApiextensionsV1beta1Api.read_custom_resource_definition"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -581,7 +581,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling ApiextensionsV1beta1Api.read_custom_resource_definition_status"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -647,7 +647,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiextensionsV1beta1Api.replace_custom_resource_definition"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -714,7 +714,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling ApiextensionsV1beta1Api.replace_custom_resource_definition_status"
       end
       # resource path
-      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class AppsV1beta2Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.create_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -126,7 +126,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.create_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -196,7 +196,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.create_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -266,7 +266,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.create_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -336,7 +336,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.create_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -412,7 +412,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_collection_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -494,7 +494,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_collection_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -576,7 +576,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_collection_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -658,7 +658,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_collection_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -740,7 +740,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_collection_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -822,7 +822,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -900,7 +900,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -978,7 +978,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1056,7 +1056,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1134,7 +1134,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.delete_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1489,7 +1489,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.list_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1571,7 +1571,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.list_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1653,7 +1653,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.list_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1735,7 +1735,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.list_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1817,7 +1817,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.list_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2049,7 +2049,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2122,7 +2122,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2195,7 +2195,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_daemon_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2268,7 +2268,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2341,7 +2341,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_deployment_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2414,7 +2414,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_deployment_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2487,7 +2487,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2560,7 +2560,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_replica_set_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2633,7 +2633,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_replica_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2706,7 +2706,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2779,7 +2779,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_stateful_set_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2852,7 +2852,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.patch_namespaced_stateful_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2921,7 +2921,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2991,7 +2991,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3057,7 +3057,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_daemon_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3125,7 +3125,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3191,7 +3191,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_deployment_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3255,7 +3255,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_deployment_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3323,7 +3323,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3389,7 +3389,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_replica_set_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3453,7 +3453,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_replica_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3521,7 +3521,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3587,7 +3587,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_stateful_set_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3651,7 +3651,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling AppsV1beta2Api.read_namespaced_stateful_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3723,7 +3723,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_controller_revision"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/controllerrevisions/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3796,7 +3796,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_daemon_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3869,7 +3869,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_daemon_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/daemonsets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3942,7 +3942,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_deployment"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4015,7 +4015,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_deployment_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4088,7 +4088,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_deployment_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/deployments/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4161,7 +4161,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_replica_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4234,7 +4234,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_replica_set_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4307,7 +4307,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_replica_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/replicasets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4380,7 +4380,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_stateful_set"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4453,7 +4453,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_stateful_set_scale"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4526,7 +4526,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AppsV1beta2Api.replace_namespaced_stateful_set_status"
       end
       # resource path
-      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/apps/v1beta2/namespaces/{namespace}/statefulsets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

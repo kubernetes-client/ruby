@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class SettingsV1alpha1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling SettingsV1alpha1Api.create_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -132,7 +132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling SettingsV1alpha1Api.delete_collection_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -214,7 +214,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling SettingsV1alpha1Api.delete_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -341,7 +341,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling SettingsV1alpha1Api.list_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -497,7 +497,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling SettingsV1alpha1Api.patch_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -566,7 +566,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling SettingsV1alpha1Api.read_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -640,7 +640,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling SettingsV1alpha1Api.replace_namespaced_pod_preset"
       end
       # resource path
-      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/settings.k8s.io/v1alpha1/namespaces/{namespace}/podpresets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

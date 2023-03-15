@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class CoordinationV1beta1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoordinationV1beta1Api.create_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -132,7 +132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoordinationV1beta1Api.delete_collection_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -214,7 +214,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoordinationV1beta1Api.delete_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -417,7 +417,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoordinationV1beta1Api.list_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -497,7 +497,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoordinationV1beta1Api.patch_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -566,7 +566,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoordinationV1beta1Api.read_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -640,7 +640,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoordinationV1beta1Api.replace_namespaced_lease"
       end
       # resource path
-      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/coordination.k8s.io/v1beta1/namespaces/{namespace}/leases/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

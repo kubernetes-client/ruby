@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class CoreV1Api
@@ -52,7 +52,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_delete_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -122,7 +122,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_delete_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -186,7 +186,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_delete_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -256,7 +256,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_delete_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -314,7 +314,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_delete_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -378,7 +378,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_delete_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -450,7 +450,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_get_namespaced_pod_attach"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/attach".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/attach".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -528,7 +528,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_get_namespaced_pod_exec"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/exec".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/exec".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -597,7 +597,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_get_namespaced_pod_portforward"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/portforward".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/portforward".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -661,7 +661,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_get_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -731,7 +731,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_get_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -795,7 +795,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_get_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -865,7 +865,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_get_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -923,7 +923,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_get_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -987,7 +987,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_get_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1051,7 +1051,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_head_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1121,7 +1121,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_head_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1185,7 +1185,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_head_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1255,7 +1255,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_head_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1313,7 +1313,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_head_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1377,7 +1377,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_head_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1441,7 +1441,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_options_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1511,7 +1511,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_options_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1575,7 +1575,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_options_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1645,7 +1645,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_options_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1703,7 +1703,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_options_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1767,7 +1767,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_options_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1831,7 +1831,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_patch_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1901,7 +1901,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_patch_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -1965,7 +1965,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_patch_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2035,7 +2035,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_patch_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -2093,7 +2093,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_patch_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -2157,7 +2157,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_patch_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -2229,7 +2229,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_post_namespaced_pod_attach"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/attach".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/attach".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2307,7 +2307,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_post_namespaced_pod_exec"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/exec".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/exec".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2376,7 +2376,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_post_namespaced_pod_portforward"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/portforward".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/portforward".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2440,7 +2440,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_post_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2510,7 +2510,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_post_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -2574,7 +2574,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_post_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2644,7 +2644,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_post_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -2702,7 +2702,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_post_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -2766,7 +2766,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_post_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -2830,7 +2830,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_put_namespaced_pod_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2900,7 +2900,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_put_namespaced_pod_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -2964,7 +2964,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.connect_put_namespaced_service_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3034,7 +3034,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_put_namespaced_service_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -3092,7 +3092,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.connect_put_node_proxy"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -3156,7 +3156,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'path' when calling CoreV1Api.connect_put_node_proxy_with_path"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'path' + '}', path.to_s)
+      local_var_path = "/api/v1/nodes/{name}/proxy/{path}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'path' + '}', path.to_s)
 
       # query parameters
       query_params = {}
@@ -3288,7 +3288,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_binding"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/bindings".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/bindings".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3358,7 +3358,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3428,7 +3428,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3498,7 +3498,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3568,7 +3568,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3638,7 +3638,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3708,7 +3708,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3784,7 +3784,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_pod_binding"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/binding".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/binding".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3860,7 +3860,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_pod_eviction"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/eviction".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/eviction".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -3930,7 +3930,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4000,7 +4000,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4070,7 +4070,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4140,7 +4140,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4210,7 +4210,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_service"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4280,7 +4280,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.create_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4484,7 +4484,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4566,7 +4566,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4648,7 +4648,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4730,7 +4730,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4812,7 +4812,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4894,7 +4894,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -4976,7 +4976,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5058,7 +5058,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5140,7 +5140,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5222,7 +5222,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5304,7 +5304,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_collection_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5532,7 +5532,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.delete_namespace"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -5610,7 +5610,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5688,7 +5688,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5766,7 +5766,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5844,7 +5844,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -5922,7 +5922,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6000,7 +6000,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6078,7 +6078,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6156,7 +6156,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6234,7 +6234,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6312,7 +6312,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6390,7 +6390,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_service"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6468,7 +6468,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.delete_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -6540,7 +6540,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.delete_node"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -6612,7 +6612,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.delete_persistent_volume"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -7195,7 +7195,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7277,7 +7277,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7359,7 +7359,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7441,7 +7441,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7523,7 +7523,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7605,7 +7605,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7687,7 +7687,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7769,7 +7769,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7851,7 +7851,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -7933,7 +7933,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -8015,7 +8015,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_service"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -8097,7 +8097,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.list_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -8931,7 +8931,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespace"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -8998,7 +8998,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespace_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -9071,7 +9071,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9144,7 +9144,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9217,7 +9217,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9290,7 +9290,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9363,7 +9363,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9436,7 +9436,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_persistent_volume_claim_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9509,7 +9509,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9582,7 +9582,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_pod_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9655,7 +9655,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9728,7 +9728,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9801,7 +9801,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_replication_controller_scale"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9874,7 +9874,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_replication_controller_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -9947,7 +9947,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10020,7 +10020,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_resource_quota_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10093,7 +10093,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10166,7 +10166,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_service"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10239,7 +10239,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10312,7 +10312,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_namespaced_service_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10379,7 +10379,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_node"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10446,7 +10446,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_node_status"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10513,7 +10513,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_persistent_volume"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10580,7 +10580,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.patch_persistent_volume_status"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10639,7 +10639,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_component_status"
       end
       # resource path
-      local_var_path = "/api/v1/componentstatuses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/componentstatuses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10701,7 +10701,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_namespace"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10761,7 +10761,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_namespace_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -10829,7 +10829,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10899,7 +10899,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -10969,7 +10969,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11039,7 +11039,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11109,7 +11109,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11175,7 +11175,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_persistent_volume_claim_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11243,7 +11243,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11323,7 +11323,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_pod_log"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/log".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/log".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11394,7 +11394,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_pod_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11462,7 +11462,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11532,7 +11532,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11598,7 +11598,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_replication_controller_scale"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11662,7 +11662,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_replication_controller_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11730,7 +11730,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11796,7 +11796,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_resource_quota_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11864,7 +11864,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -11934,7 +11934,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_service"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12004,7 +12004,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12070,7 +12070,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling CoreV1Api.read_namespaced_service_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12132,7 +12132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_node"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12192,7 +12192,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_node_status"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12254,7 +12254,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_persistent_volume"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12314,7 +12314,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CoreV1Api.read_persistent_volume_status"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12380,7 +12380,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespace"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12447,7 +12447,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespace_finalize"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}/finalize".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}/finalize".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12514,7 +12514,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespace_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/namespaces/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -12587,7 +12587,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_config_map"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/configmaps/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12660,7 +12660,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_endpoints"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/endpoints/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12733,7 +12733,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_event"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12806,7 +12806,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_limit_range"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/limitranges/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12879,7 +12879,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_persistent_volume_claim"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -12952,7 +12952,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_persistent_volume_claim_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/persistentvolumeclaims/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13025,7 +13025,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_pod"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13098,7 +13098,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_pod_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/pods/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13171,7 +13171,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_pod_template"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/podtemplates/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13244,7 +13244,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_replication_controller"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13317,7 +13317,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_replication_controller_scale"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/scale".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13390,7 +13390,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_replication_controller_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/replicationcontrollers/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13463,7 +13463,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_resource_quota"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13536,7 +13536,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_resource_quota_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/resourcequotas/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13609,7 +13609,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_secret"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/secrets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13682,7 +13682,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_service"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13755,7 +13755,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_service_account"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/serviceaccounts/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13828,7 +13828,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_namespaced_service_status"
       end
       # resource path
-      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/api/v1/namespaces/{namespace}/services/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -13895,7 +13895,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_node"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -13962,7 +13962,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_node_status"
       end
       # resource path
-      local_var_path = "/api/v1/nodes/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/nodes/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -14029,7 +14029,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_persistent_volume"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -14096,7 +14096,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CoreV1Api.replace_persistent_volume_status"
       end
       # resource path
-      local_var_path = "/api/v1/persistentvolumes/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/api/v1/persistentvolumes/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

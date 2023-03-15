@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class EventsV1beta1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling EventsV1beta1Api.create_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -132,7 +132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling EventsV1beta1Api.delete_collection_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -214,7 +214,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling EventsV1beta1Api.delete_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -417,7 +417,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling EventsV1beta1Api.list_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -497,7 +497,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling EventsV1beta1Api.patch_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -566,7 +566,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling EventsV1beta1Api.read_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -640,7 +640,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling EventsV1beta1Api.replace_namespaced_event"
       end
       # resource path
-      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/events.k8s.io/v1beta1/namespaces/{namespace}/events/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
