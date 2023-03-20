@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class StorageV1beta1Api
@@ -336,7 +336,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling StorageV1beta1Api.delete_storage_class"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -408,7 +408,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling StorageV1beta1Api.delete_volume_attachment"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -679,7 +679,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling StorageV1beta1Api.patch_storage_class"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -746,7 +746,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling StorageV1beta1Api.patch_volume_attachment"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -809,7 +809,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling StorageV1beta1Api.read_storage_class"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -873,7 +873,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling StorageV1beta1Api.read_volume_attachment"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -941,7 +941,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling StorageV1beta1Api.replace_storage_class"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/storageclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1008,7 +1008,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling StorageV1beta1Api.replace_volume_attachment"
       end
       # resource path
-      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/storage.k8s.io/v1beta1/volumeattachments/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class AuthorizationV1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AuthorizationV1Api.create_namespaced_local_subject_access_review"
       end
       # resource path
-      local_var_path = "/apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

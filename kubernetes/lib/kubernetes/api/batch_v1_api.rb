@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class BatchV1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV1Api.create_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -132,7 +132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV1Api.delete_collection_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -214,7 +214,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV1Api.delete_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -417,7 +417,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV1Api.list_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -497,7 +497,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV1Api.patch_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -570,7 +570,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV1Api.patch_namespaced_job_status"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -639,7 +639,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV1Api.read_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -705,7 +705,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling BatchV1Api.read_namespaced_job_status"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -777,7 +777,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV1Api.replace_namespaced_job"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -850,7 +850,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling BatchV1Api.replace_namespaced_job_status"
       end
       # resource path
-      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/batch/v1/namespaces/{namespace}/jobs/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

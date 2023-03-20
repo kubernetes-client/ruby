@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class CertificatesV1beta1Api
@@ -120,7 +120,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CertificatesV1beta1Api.delete_certificate_signing_request"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -391,7 +391,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CertificatesV1beta1Api.patch_certificate_signing_request"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -458,7 +458,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CertificatesV1beta1Api.patch_certificate_signing_request_status"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -521,7 +521,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CertificatesV1beta1Api.read_certificate_signing_request"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -581,7 +581,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling CertificatesV1beta1Api.read_certificate_signing_request_status"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -647,7 +647,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CertificatesV1beta1Api.replace_certificate_signing_request"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -714,7 +714,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CertificatesV1beta1Api.replace_certificate_signing_request_approval"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/approval".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/approval".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -781,7 +781,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling CertificatesV1beta1Api.replace_certificate_signing_request_status"
       end
       # resource path
-      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/certificates.k8s.io/v1beta1/certificatesigningrequests/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

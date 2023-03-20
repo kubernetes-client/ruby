@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class SchedulingV1beta1Api
@@ -196,7 +196,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling SchedulingV1beta1Api.delete_priority_class"
       end
       # resource path
-      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -391,7 +391,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling SchedulingV1beta1Api.patch_priority_class"
       end
       # resource path
-      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -454,7 +454,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling SchedulingV1beta1Api.read_priority_class"
       end
       # resource path
-      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -522,7 +522,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling SchedulingV1beta1Api.replace_priority_class"
       end
       # resource path
-      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/scheduling.k8s.io/v1beta1/priorityclasses/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

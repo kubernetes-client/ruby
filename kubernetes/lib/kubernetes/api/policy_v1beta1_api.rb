@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class PolicyV1beta1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.create_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -196,7 +196,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling PolicyV1beta1Api.delete_collection_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -354,7 +354,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling PolicyV1beta1Api.delete_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -426,7 +426,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling PolicyV1beta1Api.delete_pod_security_policy"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -553,7 +553,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling PolicyV1beta1Api.list_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -785,7 +785,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.patch_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -858,7 +858,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.patch_namespaced_pod_disruption_budget_status"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -925,7 +925,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.patch_pod_security_policy"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -994,7 +994,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling PolicyV1beta1Api.read_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1060,7 +1060,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling PolicyV1beta1Api.read_namespaced_pod_disruption_budget_status"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1122,7 +1122,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling PolicyV1beta1Api.read_pod_security_policy"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1196,7 +1196,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.replace_namespaced_pod_disruption_budget"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1269,7 +1269,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.replace_namespaced_pod_disruption_budget_status"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/policy/v1beta1/namespaces/{namespace}/poddisruptionbudgets/{name}/status".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1336,7 +1336,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling PolicyV1beta1Api.replace_pod_security_policy"
       end
       # resource path
-      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/policy/v1beta1/podsecuritypolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

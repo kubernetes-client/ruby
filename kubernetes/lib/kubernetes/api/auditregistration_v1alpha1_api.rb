@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class AuditregistrationV1alpha1Api
@@ -120,7 +120,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling AuditregistrationV1alpha1Api.delete_audit_sink"
       end
       # resource path
-      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -391,7 +391,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AuditregistrationV1alpha1Api.patch_audit_sink"
       end
       # resource path
-      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -454,7 +454,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling AuditregistrationV1alpha1Api.read_audit_sink"
       end
       # resource path
-      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -522,7 +522,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling AuditregistrationV1alpha1Api.replace_audit_sink"
       end
       # resource path
-      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/auditregistration.k8s.io/v1alpha1/auditsinks/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}

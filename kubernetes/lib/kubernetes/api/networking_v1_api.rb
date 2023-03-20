@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class NetworkingV1Api
@@ -56,7 +56,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling NetworkingV1Api.create_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -132,7 +132,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling NetworkingV1Api.delete_collection_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -214,7 +214,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling NetworkingV1Api.delete_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -341,7 +341,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling NetworkingV1Api.list_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -497,7 +497,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling NetworkingV1Api.patch_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -566,7 +566,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling NetworkingV1Api.read_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -640,7 +640,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling NetworkingV1Api.replace_namespaced_network_policy"
       end
       # resource path
-      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/networking.k8s.io/v1/namespaces/{namespace}/networkpolicies/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

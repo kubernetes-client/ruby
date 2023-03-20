@@ -10,7 +10,7 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
+require "cgi"
 
 module Kubernetes
   class RbacAuthorizationV1beta1Api
@@ -184,7 +184,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.create_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -254,7 +254,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.create_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -324,7 +324,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling RbacAuthorizationV1beta1Api.delete_cluster_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -396,7 +396,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling RbacAuthorizationV1beta1Api.delete_cluster_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -626,7 +626,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.delete_collection_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -708,7 +708,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.delete_collection_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -790,7 +790,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.delete_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -868,7 +868,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.delete_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1147,7 +1147,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.list_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1229,7 +1229,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.list_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings".sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings".sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1455,7 +1455,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.patch_cluster_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1522,7 +1522,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.patch_cluster_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1595,7 +1595,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.patch_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1668,7 +1668,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.patch_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1727,7 +1727,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling RbacAuthorizationV1beta1Api.read_cluster_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1785,7 +1785,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'name' when calling RbacAuthorizationV1beta1Api.read_cluster_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -1849,7 +1849,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.read_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1913,7 +1913,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'namespace' when calling RbacAuthorizationV1beta1Api.read_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -1979,7 +1979,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.replace_cluster_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterroles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -2046,7 +2046,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.replace_cluster_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', name.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/clusterrolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s))
 
       # query parameters
       query_params = {}
@@ -2119,7 +2119,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.replace_namespaced_role"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/roles/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}
@@ -2192,7 +2192,7 @@ module Kubernetes
         fail ArgumentError, "Missing the required parameter 'body' when calling RbacAuthorizationV1beta1Api.replace_namespaced_role_binding"
       end
       # resource path
-      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', name.to_s).sub('{' + 'namespace' + '}', namespace.to_s)
+      local_var_path = "/apis/rbac.authorization.k8s.io/v1beta1/namespaces/{namespace}/rolebindings/{name}".sub('{' + 'name' + '}', CGI.escape(name.to_s)).sub('{' + 'namespace' + '}', CGI.escape(namespace.to_s))
 
       # query parameters
       query_params = {}

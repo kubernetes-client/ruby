@@ -10,8 +10,6 @@ Swagger Codegen version: 2.2.3
 
 =end
 
-require "uri"
-
 module Kubernetes
   class AdmissionregistrationApi
     attr_accessor :api_client
