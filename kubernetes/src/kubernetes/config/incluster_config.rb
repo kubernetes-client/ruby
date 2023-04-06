@@ -78,7 +78,7 @@ module Kubernetes
     end
 
     # rubocop:disable Metrics/AbcSize
-    def configure(configuration, try_refresh_token: true)
+    def configure(configuration, try_refresh_token: false)
       validate
       load_token
       configuration.api_key['authorization'] = "Bearer #{token}"
